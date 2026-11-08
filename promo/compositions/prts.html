@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+  <body>
+    <div
+      id="prts"
+      data-composition-id="prts"
+      data-start="0"
+      data-duration="16"
+      data-width="1920"
+      data-height="1080"
+    >
+      <style>
+        #prts {
+          background: #e6e6e8;
+          color: #262b2c;
+        }
+        #prts .marquee {
+          position: absolute;
+          top: 30px;
+          left: 0;
+          white-space: nowrap;
+          font: italic 900 260px/1 var(--font-name);
+          color: transparent;
+          -webkit-text-stroke: 3px #0e6d92;
+          opacity: 0.25;
+        }
+        #prts .side {
+          position: absolute;
+          top: 250px;
+          left: 120px;
+          width: 640px;
+        }
+        #prts .index {
+          font: 700 28px/1 var(--font-mono);
+          color: #0e6d92;
+          letter-spacing: 0.2em;
+        }
+        #prts .zh {
+          margin-top: 16px;
+          font: 900 120px/1.05 var(--font-text);
+        }
+        #prts .char {
+          display: inline-block;
+        }
+        #prts .en {
+          margin-top: 6px;
+          font: 600 34px/1.2 var(--font-name);
+          opacity: 0.8;
+        }
+        #prts .label {
+          margin-top: 36px;
+          font: 700 28px/1 var(--font-mono);
+          color: #0e6d92;
+        }
+        #prts .swatches {
+          display: flex;
+          gap: 18px;
+          margin-top: 14px;
+        }
+        #prts .swatch {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 6px;
+          width: 110px;
+        }
+        #prts .dot {
+          width: 84px;
+          height: 84px;
+          border: 4px solid #262b2c;
+          border-radius: 50%;
+        }
+        #prts .swatch b {
+          font-size: 28px;
+        }
+        #prts .swatch small {
+          font: 600 28px/1 var(--font-mono);
+          opacity: 0.85;
+        }
+        #prts .keys {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 14px;
+        }
+        #prts .key {
+          padding: 8px 18px;
+          border: 3px solid #262b2c;
+          border-radius: 10px;
+          font-size: 30px;
+          font-weight: 700;
+        }
+      </style>
+      <div class="marquee" data-layout-ignore>PRTS · PRTS · PRTS</div>
+      <div class="side">
+        <div class="index">04 / 04</div>
+        <h2 class="zh">
+          <span class="char">普</span><span class="char">瑞</span><span class="char">赛</span
+          ><span class="char">斯</span>
+        </h2>
+        <p class="en">PRTS</p>
+        <p class="label">主题色</p>
+        <div class="swatches">
+          <div class="swatch">
+            <span class="dot" style="background: #e6e6e8"></span><b>浅灰底</b><small>#E6E6E8</small>
+          </div>
+          <div class="swatch">
+            <span class="dot" style="background: #313131"></span><b>钢灰</b><small>#313131</small>
+          </div>
+          <div class="swatch">
+            <span class="dot" style="background: #18a3dc"></span><b>选中蓝</b><small>#18A3DC</small>
+          </div>
+          <div class="swatch">
+            <span class="dot" style="background: #0e6d92"></span><b>深蓝</b><small>#0E6D92</small>
+          </div>
+          <div class="swatch">
+            <span class="dot" style="background: #8b1020"></span><b>确认红</b><small>#8B1020</small>
+          </div>
+        </div>
+        <p class="label">风格</p>
+        <div class="keys">
+          <span class="key">方形钢板</span><span class="key">斜纹白底</span
+          ><span class="key">横条展开</span>
+        </div>
+      </div>
+      <script>
+        window.__timelines = window.__timelines || {};
+        const BEAT = 0.5;
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#prts .marquee", { x: 0 }, { x: -800, duration: 16, ease: "none" }, 0);
+        tl.from("#prts .index", { x: -60, opacity: 0, duration: 0.4, ease: "power3.out" }, 0.3);
+        tl.from(
+          "#prts .char",
+          {
+            y: 120,
+            rotation: (i) => (i % 2 === 0 ? -18 : 18),
+            opacity: 0,
+            duration: 0.5,
+            ease: "back.out(2)",
+            stagger: 0.12,
+          },
+          0.4,
+        );
+        tl.from("#prts .en", { y: 30, opacity: 0, duration: 0.4, ease: "power3.out" }, 1);
+        tl.from(
+          "#prts .label",
+          { x: -40, opacity: 0, duration: 0.4, ease: "power3.out", stagger: 1.6 },
+          1.6,
+        );
+        tl.from(
+          "#prts .dot",
+          { scale: 0, duration: 0.4, ease: "back.out(2.4)", stagger: BEAT / 2 },
+          1.8,
+        );
+        tl.from(
+          "#prts .swatch b, #prts .swatch small",
+          { y: 16, opacity: 0, duration: 0.3, stagger: 0.06 },
+          2.1,
+        );
+        tl.from(
+          "#prts .key",
+          { scale: 0, rotation: -12, duration: 0.4, ease: "back.out(2.2)", stagger: BEAT },
+          3.4,
+        );
+        tl.to(
+          "#prts .dot",
+          { scale: 1.15, duration: 0.25, yoyo: true, repeat: 1, stagger: 0.1 },
+          8,
+        );
+        tl.to("#prts .side", { x: -80, opacity: 0, duration: 0.35, ease: "power2.in" }, 15.4);
+        window.__timelines["prts"] = tl;
+      </script>
+    </div>
+  </body>
+</html>

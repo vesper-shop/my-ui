@@ -1,0 +1,118 @@
+@import "./palette.css";
+
+@theme static {
+  --color-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --color-transparent: transparent;
+
+  --color-background: light-dark(var(--palette-paper-page), var(--palette-ink-black));
+  --color-surface: light-dark(var(--palette-ink-white), var(--palette-ink-card));
+  --color-surface-sunken: light-dark(var(--palette-ink-white), var(--palette-ink-panel));
+  --color-surface-raised: light-dark(var(--palette-paper-cover), var(--palette-ink-cover));
+  --color-foreground: light-dark(var(--palette-ink-black), var(--palette-ink-white));
+  --color-muted-foreground: light-dark(
+    var(--palette-paper-text-muted),
+    var(--palette-ink-text-muted)
+  );
+  --color-subtle-foreground: light-dark(
+    var(--palette-paper-text-subtle),
+    var(--palette-ink-text-subtle)
+  );
+  --color-disabled-foreground: light-dark(
+    var(--palette-paper-disabled),
+    var(--palette-ink-disabled)
+  );
+  --color-border: light-dark(var(--palette-paper-border), var(--palette-ink-border));
+  --color-divider: light-dark(var(--palette-paper-divider), var(--palette-ink-divider));
+  --color-accent: var(--palette-knot-yellow);
+  --color-accent-foreground: var(--palette-ink-black);
+  --color-danger: var(--palette-knot-red);
+  --color-success: light-dark(var(--palette-knot-lime-deep), var(--palette-knot-lime));
+  --color-warning: light-dark(var(--palette-knot-orange-deep), var(--palette-knot-orange));
+  --color-focus: light-dark(var(--palette-paper-text-muted), var(--palette-ink-text-muted));
+  --color-overlay: light-dark(var(--palette-alpha-overlay-light), var(--palette-alpha-overlay));
+
+  --color-chrome: light-dark(var(--palette-ink-white), var(--palette-ink-black));
+  --color-dot: light-dark(var(--palette-paper-dot), var(--palette-ink-dot));
+  --color-window: light-dark(var(--palette-paper-window), var(--palette-ink-window));
+  --color-window-body: light-dark(var(--palette-paper-body), var(--palette-ink-body));
+  --color-window-title: light-dark(var(--palette-paper-title), var(--palette-ink-title));
+  --color-frame: light-dark(var(--palette-paper-frame), var(--palette-ink-divider));
+  --color-border-strong: light-dark(
+    var(--palette-paper-border-strong),
+    var(--palette-ink-border-strong)
+  );
+  --color-badge: light-dark(var(--palette-paper-badge), var(--palette-ink-badge));
+  --color-tag-from: var(--palette-knot-blue-light);
+  --color-tag-to: var(--palette-knot-blue);
+  --color-tag-foreground: var(--palette-ink-white);
+  --color-avatar: var(--palette-ink-avatar);
+  --color-avatar-ring: light-dark(var(--palette-paper-ring), var(--palette-ink-ring));
+  --color-accent-strong: var(--palette-knot-lime);
+  --color-stripe: light-dark(var(--palette-alpha-stripe-light), var(--palette-alpha-stripe));
+  --color-shade: light-dark(var(--palette-alpha-shade-light), var(--palette-alpha-shade));
+  --color-progress-from: var(--palette-knot-exp);
+  --color-progress-to: var(--palette-knot-exp-light);
+
+  --font-sans:
+    "Rubik", "Noto Sans SC", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-weight-bold: 900;
+  --font-display: var(--font-sans);
+  --font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+  --radius-control: 16px;
+  --radius-card: 22px 22px 0 22px;
+  --radius-window: 16px 5px 16px 16px;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 6px 16px -4px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 18px 40px -8px rgb(0 0 0 / 0.6);
+  --shadow-hairline: 0 0 0 1px var(--color-chrome);
+}
+
+:root {
+  color-scheme: dark;
+
+  --size-control: 38px;
+  --size-frame: 3px;
+
+  --pattern-dots:
+    radial-gradient(circle, var(--color-dot) 1.2px, transparent 1.6px),
+    radial-gradient(circle, var(--color-dot) 1.2px, transparent 1.6px);
+  --pattern-dots-size: 6px 6px;
+  --pattern-dots-position: 0 0, 3px 3px;
+  --pattern-stripes: repeating-linear-gradient(
+    -45deg,
+    var(--color-stripe) 0,
+    var(--color-stripe) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --duration-pulse: 0.6s;
+  --duration-press: 400ms;
+}
+
+:root.light {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

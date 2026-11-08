@@ -1,0 +1,54 @@
+@layer components {
+  .fg-toggle {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition-property: background-color, border-color, box-shadow, color;
+    transition-duration: var(--duration-fast);
+  }
+
+  .fg-toggle[data-variant="default"] {
+    height: 30px;
+    padding-inline: 14px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background-color: var(--color-surface);
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-muted-foreground);
+  }
+
+  .fg-toggle[data-variant="default"]:hover:not([data-pressed], [data-disabled]) {
+    border-color: var(--color-muted-foreground);
+    color: var(--color-foreground);
+  }
+
+  .fg-toggle[data-variant="default"][data-pressed] {
+    border-color: var(--color-ink);
+    background-color: var(--color-accent);
+    box-shadow: 1px 2px 0 var(--color-ink);
+    color: var(--color-accent-foreground);
+  }
+
+  .fg-toggle[data-variant="ghost"]:hover:not([data-disabled]),
+  .fg-toggle[data-variant="ghost"][data-pressed] {
+    color: var(--color-accent);
+  }
+
+  .fg-toggle:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  .fg-toggle[data-disabled] {
+    color: var(--color-disabled-foreground);
+    cursor: default;
+  }
+}

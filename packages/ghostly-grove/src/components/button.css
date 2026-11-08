@@ -1,0 +1,57 @@
+@layer components {
+  .gg-button {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition-property: border-color, box-shadow, color, opacity;
+    transition-duration: var(--duration-fast);
+  }
+
+  .gg-button[data-variant="default"] {
+    height: 52px;
+    padding-inline: 32px;
+    border: var(--size-frame) solid var(--color-accent);
+    background-image: linear-gradient(90deg, var(--color-nav-from), var(--color-nav-to));
+    font-size: 20px;
+    color: var(--color-accent-foreground);
+  }
+
+  .gg-button[data-variant="default"]:hover:not([data-disabled]) {
+    border-color: var(--color-glow);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .gg-button[data-variant="ghost"] {
+    font-size: 18px;
+    color: var(--color-link);
+  }
+
+  .gg-button[data-variant="ghost"]:hover:not([data-disabled]) {
+    color: var(--color-glow);
+  }
+
+  .gg-button:active:not([data-disabled]) {
+    opacity: 0.75;
+  }
+
+  .gg-button:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  .gg-button[data-disabled] {
+    color: var(--color-disabled-foreground);
+    cursor: default;
+  }
+
+  .gg-button[data-variant="default"][data-disabled] {
+    border-color: var(--color-border);
+    background-image: none;
+  }
+}

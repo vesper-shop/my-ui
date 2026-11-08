@@ -1,0 +1,17 @@
+@layer components {
+  .ik-separator {
+    flex-shrink: 0;
+    border-radius: var(--radius-full);
+    background-color: var(--color-divider);
+  }
+
+  .ik-separator[data-orientation="horizontal"] {
+    width: 100%;
+    height: 3px;
+  }
+
+  .ik-separator[data-orientation="vertical"] {
+    width: 3px;
+    align-self: stretch;
+  }
+}

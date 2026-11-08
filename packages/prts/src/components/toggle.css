@@ -1,0 +1,67 @@
+@layer components {
+  .pr-toggle {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition-property: background-color, color, filter, translate, box-shadow;
+    transition-duration: var(--duration-fast);
+  }
+
+  .pr-toggle[data-variant="default"] {
+    height: var(--size-control);
+    padding-inline: 22px;
+    background-color: var(--color-steel);
+    box-shadow: var(--shadow-control);
+    font-size: 16px;
+    color: var(--color-white);
+  }
+
+  .pr-toggle[data-variant="default"][data-pressed] {
+    background-color: var(--color-accent);
+  }
+
+  .pr-toggle[data-variant="default"]:hover:not([data-disabled]) {
+    filter: brightness(1.12);
+  }
+
+  .pr-toggle[data-variant="default"]:active:not([data-disabled]) {
+    box-shadow: none;
+    filter: brightness(0.9);
+    translate: 0 2px;
+  }
+
+  .pr-toggle[data-variant="ghost"] {
+    color: var(--color-muted-foreground);
+  }
+
+  .pr-toggle[data-variant="ghost"]:hover:not([data-disabled]) {
+    color: var(--color-foreground);
+  }
+
+  .pr-toggle[data-variant="ghost"][data-pressed] {
+    color: var(--color-accent);
+  }
+
+  .pr-toggle:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  .pr-toggle[data-disabled] {
+    background-color: var(--color-disabled-foreground);
+    box-shadow: none;
+    color: var(--color-divider);
+    cursor: default;
+  }
+
+  .pr-toggle[data-variant="ghost"][data-disabled] {
+    background-color: transparent;
+    color: var(--color-disabled-foreground);
+  }
+}

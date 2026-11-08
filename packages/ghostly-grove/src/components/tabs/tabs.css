@@ -1,0 +1,111 @@
+@layer components {
+  .gg-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .gg-tabs[data-orientation="vertical"] {
+    flex-direction: row;
+    gap: 48px;
+  }
+
+  .gg-tabs__list {
+    position: relative;
+    display: flex;
+    gap: 16px;
+  }
+
+  .gg-tabs__list[data-orientation="vertical"] {
+    flex-direction: column;
+    gap: 26px;
+    width: var(--size-nav-width);
+  }
+
+  .gg-tabs__tab {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: var(--size-nav-width);
+    height: var(--size-nav-height);
+    padding-inline: 26px;
+    overflow: hidden;
+    border: var(--size-frame) solid var(--color-border);
+    background-color: var(--color-surface-raised);
+    font-size: 20px;
+    white-space: nowrap;
+    color: var(--color-subtle-foreground);
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition-property: border-color, color, box-shadow;
+    transition-duration: var(--duration-fast);
+  }
+
+  .gg-tabs__tab::before,
+  .gg-tabs__tab::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--duration-base);
+  }
+
+  .gg-tabs__tab::before {
+    background-image: linear-gradient(90deg, var(--color-nav-from), var(--color-nav-to));
+  }
+
+  .gg-tabs__tab::after {
+    background-image: var(--pattern-hex);
+    mask-image: linear-gradient(90deg, transparent 45%, #000);
+  }
+
+  .gg-tabs__tab:hover,
+  .gg-tabs__tab:focus-visible {
+    border-color: var(--color-glow);
+    color: var(--color-foreground);
+  }
+
+  .gg-tabs__tab[data-active] {
+    border-color: var(--color-accent);
+    box-shadow: inset 0 0 0 1px var(--color-glow);
+    color: var(--color-accent-foreground);
+    cursor: default;
+  }
+
+  .gg-tabs__tab[data-active]::before {
+    opacity: 1;
+  }
+
+  .gg-tabs__tab[data-active]::after {
+    opacity: 0.5;
+  }
+
+  .gg-tabs__tab[data-disabled] {
+    border-color: var(--color-border);
+    color: var(--color-disabled-foreground);
+    cursor: default;
+  }
+
+  .gg-tabs__indicator {
+    display: none;
+  }
+
+  .gg-tabs__panel {
+    flex: 1;
+    min-width: 0;
+    outline: none;
+  }
+
+  .gg-tabs__panel:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: -2px;
+  }
+
+  .gg-tabs__panel[data-starting-style] {
+    opacity: 0;
+  }
+}

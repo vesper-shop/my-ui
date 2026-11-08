@@ -1,0 +1,21 @@
+@layer components {
+  .pr-tooltip__positioner {
+    z-index: 20;
+  }
+
+  .pr-tooltip__popup {
+    padding: 6px 12px;
+    background-color: var(--color-steel);
+    box-shadow: var(--shadow-md);
+    font-size: 13px;
+    line-height: 1.4;
+    white-space: nowrap;
+    color: var(--color-white);
+    transition: opacity var(--duration-fast);
+  }
+
+  .pr-tooltip__popup[data-starting-style],
+  .pr-tooltip__popup[data-ending-style] {
+    opacity: 0;
+  }
+}

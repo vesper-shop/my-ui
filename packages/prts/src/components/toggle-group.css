@@ -1,0 +1,10 @@
+@layer components {
+  .pr-toggle-group {
+    display: inline-flex;
+    gap: 12px;
+  }
+
+  .pr-toggle-group[data-orientation="vertical"] {
+    flex-direction: column;
+  }
+}

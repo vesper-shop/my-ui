@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+  <body>
+    <div
+      id="opening"
+      data-composition-id="opening"
+      data-start="0"
+      data-duration="4"
+      data-width="1920"
+      data-height="1080"
+    >
+      <style>
+        #opening .still {
+          position: absolute;
+          width: 620px;
+          border: 4px solid var(--ink);
+          border-radius: 16px;
+          box-shadow: 12px 14px 0 var(--ink);
+        }
+        #opening .still-0 {
+          left: 40px;
+          top: 50px;
+          rotate: -7deg;
+        }
+        #opening .still-1 {
+          right: 40px;
+          top: 70px;
+          rotate: 6deg;
+        }
+        #opening .still-2 {
+          left: 70px;
+          bottom: 50px;
+          rotate: 5deg;
+        }
+        #opening .still-3 {
+          right: 60px;
+          bottom: 40px;
+          rotate: -6deg;
+        }
+        #opening .center {
+          z-index: 2;
+          gap: 22px;
+        }
+        #opening .plate {
+          padding: 6px 48px 24px;
+          border: 5px solid var(--ink);
+          border-radius: 26px;
+          background: var(--paper);
+          box-shadow: 14px 14px 0 var(--ink);
+        }
+        #opening .chips {
+          display: flex;
+          gap: 18px;
+        }
+        #opening .chip {
+          padding: 8px 24px;
+          border: 3px solid var(--ink);
+          border-radius: 999px;
+          box-shadow: 4px 4px 0 var(--ink);
+          color: #0b0b0b;
+          font-size: 38px;
+          font-weight: 800;
+        }
+      </style>
+      <img class="still still-0" src="assets/stills/inter-knot.webp" alt="" /><img
+        class="still still-1"
+        src="assets/stills/ghostly-grove.webp"
+        alt=""
+      /><img class="still still-2" src="assets/stills/furbobo-gossip.webp" alt="" /><img
+        class="still still-3"
+        src="assets/stills/prts.webp"
+        alt=""
+      />
+      <div class="center">
+        <div class="plate"><h1 class="name">my-ui</h1></div>
+
+        <div class="chips">
+          <span class="chip" style="background: #f9dc00">绳网</span
+          ><span class="chip" style="background: #6efff8">罗浮杂俎</span
+          ><span class="chip" style="background: #f3933e">狸狸通信</span
+          ><span class="chip" style="background: #18a3dc">普瑞赛斯</span>
+        </div>
+      </div>
+      <script>
+        window.__timelines = window.__timelines || {};
+        const BEAT = 0.5;
+        const tl = gsap.timeline({ paused: true });
+        tl.from("#opening .plate", { scale: 1.12, duration: 0.6, ease: "power3.out" }, 0);
+        tl.from(
+          "#opening .still",
+          {
+            x: (i) => (i % 2 === 0 ? -700 : 700),
+            y: (i) => (i < 2 ? -400 : 400),
+            rotation: (i) => (i % 2 === 0 ? -30 : 30),
+            duration: 0.6,
+            ease: "back.out(1.4)",
+            stagger: BEAT / 2,
+          },
+          0.1,
+        );
+        tl.from(
+          "#opening .chip",
+          { scale: 0, rotation: -20, duration: 0.4, ease: "back.out(2.4)", stagger: BEAT / 2 },
+          1.2,
+        );
+        tl.to(
+          "#opening .still",
+          { y: "-=16", duration: BEAT, ease: "sine.inOut", yoyo: true, repeat: 2, stagger: 0.08 },
+          2.2,
+        );
+        tl.to(
+          "#opening .plate",
+          { rotation: -2, scale: 1.04, duration: BEAT, ease: "sine.inOut", yoyo: true, repeat: 2 },
+          2.4,
+        );
+        tl.to("#opening .center", { scale: 0.9, opacity: 0, duration: 0.3 }, 3.6);
+        window.__timelines["opening"] = tl;
+      </script>
+    </div>
+  </body>
+</html>

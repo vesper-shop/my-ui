@@ -1,0 +1,72 @@
+@layer components {
+  .ik-switch {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    width: 68px;
+    height: 30px;
+    padding: 2px;
+    border: var(--size-frame) solid var(--color-border);
+    border-radius: var(--radius-full);
+    background-color: var(--color-chrome);
+    @apply bg-dots;
+    box-shadow: var(--shadow-hairline);
+    cursor: pointer;
+    outline: none;
+    transition-property: background-color, border-color;
+    transition-duration: var(--duration-base);
+  }
+
+  .ik-switch::after {
+    content: "OFF";
+    position: absolute;
+    right: 10px;
+    font-size: 12px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    color: var(--color-subtle-foreground);
+  }
+
+  .ik-switch[data-checked] {
+    border-color: var(--color-accent);
+    background-color: var(--color-accent);
+    background-image: none;
+  }
+
+  .ik-switch[data-checked]::after {
+    content: "ON";
+    right: auto;
+    left: 12px;
+    color: var(--color-accent-foreground);
+  }
+
+  .ik-switch:focus-visible {
+    border-color: var(--color-focus);
+  }
+
+  .ik-switch[data-disabled] {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  .ik-switch__thumb {
+    position: relative;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-badge);
+    box-shadow:
+      inset 0 0 0 2px var(--color-border-strong),
+      var(--shadow-hairline);
+    transition-property: translate, background-color;
+    transition-duration: var(--duration-base);
+  }
+
+  .ik-switch__thumb[data-checked] {
+    background-color: var(--color-chrome);
+    box-shadow: var(--shadow-hairline);
+    translate: 38px 0;
+  }
+}

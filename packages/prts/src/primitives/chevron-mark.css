@@ -1,0 +1,15 @@
+@layer components {
+  .pr-chevron {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    rotate: 45deg;
+    translate: 0 -2px;
+  }
+
+  .pr-chevron[data-direction="up"] {
+    rotate: 225deg;
+    translate: 0 2px;
+  }
+}

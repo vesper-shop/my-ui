@@ -1,0 +1,23 @@
+@utility bg-hex {
+  background-image: var(--pattern-hex);
+}
+
+@utility bg-grove-stage {
+  background-color: var(--color-stage-base);
+  background-image:
+    radial-gradient(120% 50% at 50% 110%, var(--color-stage-glow), transparent 60%),
+    radial-gradient(40% 50% at 0% 70%, var(--color-stage-mist), transparent 70%),
+    radial-gradient(40% 50% at 100% 60%, var(--color-stage-mist), transparent 70%);
+}
+
+@utility bg-grove-band {
+  background-color: var(--color-band);
+  background-image:
+    radial-gradient(circle at 20% 40%, var(--color-star) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 70% 20%, var(--color-star) 0 1px, transparent 1.5px),
+    linear-gradient(100deg, var(--color-band-deep), var(--color-band) 45%, var(--color-band-deep));
+  background-size:
+    90px 70px,
+    130px 90px,
+    100% 100%;
+}

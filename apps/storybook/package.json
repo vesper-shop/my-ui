@@ -1,0 +1,23 @@
+{
+  "name": "@my-ui/storybook",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build -o ../../dist/storybook",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@my-ui/furbobo-gossip": "workspace:*",
+    "@my-ui/ghostly-grove": "workspace:*",
+    "@my-ui/inter-knot": "workspace:*",
+    "@my-ui/prts": "workspace:*",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@storybook/react-vite": "10.6.6",
+    "storybook": "10.6.6"
+  }
+}

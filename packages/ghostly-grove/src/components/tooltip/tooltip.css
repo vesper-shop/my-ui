@@ -1,0 +1,35 @@
+@layer components {
+  .gg-tooltip__positioner {
+    z-index: 20;
+  }
+
+  .gg-tooltip__popup {
+    position: relative;
+    max-width: 360px;
+    padding: 10px 16px;
+    border: var(--size-frame) solid var(--color-accent);
+    background-color: var(--color-tooltip);
+    font-size: 18px;
+    line-height: 1.45;
+    color: var(--color-glow);
+  }
+
+  .gg-tooltip__popup::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 32px;
+    width: 12px;
+    height: 12px;
+    border-top: var(--size-frame) solid var(--color-accent);
+    border-left: var(--size-frame) solid var(--color-accent);
+    background-color: var(--color-tooltip);
+    rotate: 45deg;
+  }
+
+  .gg-tooltip__popup[data-side="top"]::before {
+    top: auto;
+    bottom: -8px;
+    rotate: 225deg;
+  }
+}

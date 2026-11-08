@@ -1,0 +1,106 @@
+@layer components {
+  .pr-select__trigger {
+    display: inline-flex;
+    min-width: 200px;
+    height: var(--size-control);
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-inline: 12px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface-raised);
+    box-shadow: var(--shadow-sm);
+    font-size: 16px;
+    color: var(--color-foreground);
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition: border-color var(--duration-fast);
+  }
+
+  .pr-select__trigger:hover {
+    border-color: var(--color-steel-top);
+  }
+
+  .pr-select__trigger:focus-visible,
+  .pr-select__trigger[data-popup-open] {
+    border-color: var(--color-accent);
+  }
+
+  .pr-select__trigger[data-disabled] {
+    color: var(--color-disabled-foreground);
+    cursor: default;
+  }
+
+  .pr-select__value[data-placeholder] {
+    color: var(--color-disabled-foreground);
+  }
+
+  .pr-select__icon {
+    display: flex;
+    transition: rotate var(--duration-fast);
+  }
+
+  .pr-select__icon[data-popup-open] {
+    rotate: 180deg;
+  }
+
+  .pr-select__popup {
+    min-width: var(--anchor-width);
+    padding: 4px 0;
+    background-color: var(--color-surface-raised);
+    background-image: var(--pattern-hatch);
+    box-shadow: var(--shadow-md);
+    outline: none;
+    transform-origin: var(--transform-origin);
+    transition-property: opacity, clip-path;
+    transition-duration: var(--duration-fast);
+    clip-path: inset(0);
+  }
+
+  .pr-select__item {
+    display: flex;
+    height: 34px;
+    align-items: center;
+    gap: 10px;
+    padding-inline: 12px;
+    font-size: 15px;
+    color: var(--color-foreground);
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+  }
+
+  .pr-select__item[data-highlighted] {
+    background-color: var(--color-steel);
+    color: var(--color-white);
+  }
+
+  .pr-select__item[data-selected]:not([data-highlighted]) {
+    color: var(--color-accent);
+  }
+
+  .pr-select__item-indicator {
+    display: flex;
+  }
+
+  .pr-select__check {
+    width: 6px;
+    height: 6px;
+    background-color: currentColor;
+  }
+
+  .pr-select__positioner {
+    z-index: 20;
+  }
+
+  .pr-select__popup[data-starting-style],
+  .pr-select__popup[data-ending-style] {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+
+  .pr-select__item-text {
+    flex: 1;
+  }
+}

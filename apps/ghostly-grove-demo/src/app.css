@@ -1,0 +1,346 @@
+@import "@my-ui/ghostly-grove/styles";
+
+@source "./";
+
+.stage {
+  height: calc(var(--stage-height) * var(--stage-scale));
+}
+
+.stage__canvas {
+  height: var(--stage-height);
+  transform-origin: top left;
+  scale: var(--stage-scale);
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-tag {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-warning);
+  font-size: 16px;
+  color: var(--color-accent-foreground);
+}
+
+.fan-chart .recharts-area-curve {
+  filter: drop-shadow(0 0 6px var(--color-glow));
+}
+
+.fan-chart__axis {
+  stroke: var(--color-border);
+  stroke-width: 2;
+}
+
+.fan-chart__guide line {
+  stroke: var(--color-accent);
+  stroke-dasharray: 6 6;
+  stroke-opacity: 0.7;
+}
+
+.fan-chart__grid line {
+  stroke: var(--color-border);
+  stroke-dasharray: 6 6;
+  stroke-opacity: 0.6;
+}
+
+.fan-chart__level {
+  animation: chart-level-in var(--duration-slow) ease-out backwards;
+  animation-delay: calc(var(--index) * 240ms);
+}
+
+.fan-chart__level-dot {
+  fill: var(--color-glow);
+}
+
+.fan-chart__level-flash {
+  fill: var(--color-glow);
+  opacity: 0;
+  filter: drop-shadow(0 0 10px var(--color-glow));
+  animation: chart-flash 900ms ease-out;
+  animation-delay: inherit;
+}
+
+.fan-chart__level-name,
+.fan-chart__level-value,
+.fan-chart__peak-label {
+  text-anchor: middle;
+}
+
+.fan-chart__level-name {
+  fill: var(--color-foreground);
+  font-size: 18px;
+}
+
+.fan-chart__level-value {
+  fill: var(--color-link);
+  font-size: 16px;
+}
+
+.fan-chart__medal {
+  animation: chart-pop var(--duration-slow) ease-out 1s backwards;
+}
+
+.fan-chart__medal-ring {
+  fill: var(--color-surface);
+  stroke: currentColor;
+  stroke-opacity: 0.5;
+  stroke-width: 2;
+}
+
+.fan-chart__peak {
+  animation: chart-pop var(--duration-slow) ease-out 1.2s backwards;
+}
+
+.fan-chart__peak-line line {
+  stroke: var(--color-glow);
+  stroke-dasharray: 6 6;
+}
+
+.fan-chart__peak-glow {
+  fill: var(--color-glow);
+  opacity: 0.25;
+}
+
+.fan-chart__peak-dot {
+  fill: var(--color-surface);
+  stroke: var(--color-glow);
+  stroke-width: 3;
+}
+
+.fan-chart__peak-pill {
+  fill: var(--color-foreground);
+}
+
+.fan-chart__peak-label {
+  fill: var(--color-surface);
+  font-family: var(--font-numeric);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@keyframes chart-level-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes chart-flash {
+  0% {
+    opacity: 0;
+    scale: 0.4;
+  }
+  30% {
+    opacity: 1;
+    scale: 1.2;
+  }
+}
+
+@keyframes chart-pop {
+  from {
+    opacity: 0;
+    scale: 0.4;
+  }
+}
+
+.like__button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-overlay);
+  transition: color var(--duration-fast);
+}
+
+.like__button::before,
+.like__button::after {
+  content: "";
+  position: absolute;
+  border-radius: var(--radius-full);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.like__button::before {
+  inset: -14px;
+  border: 2px solid var(--color-glow);
+}
+
+.like__button::after {
+  inset: 0;
+  background-color: var(--color-glow);
+}
+
+.like[data-pressed] .like__button {
+  color: var(--color-glow);
+}
+
+.like[data-pressed] .like__icon {
+  fill: currentColor;
+}
+
+.like[data-pressed] .like__button::before {
+  animation: like-ring 600ms ease-out;
+}
+
+.like[data-pressed] .like__button::after {
+  animation: like-burst 500ms ease-out;
+}
+
+@keyframes like-ring {
+  0% {
+    opacity: 1;
+    scale: 0.5;
+  }
+  100% {
+    opacity: 0;
+    scale: 1.3;
+  }
+}
+
+@keyframes like-burst {
+  0% {
+    opacity: 0.9;
+    scale: 0.6;
+  }
+  100% {
+    opacity: 0;
+    scale: 1.4;
+  }
+}
+
+.comment {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 4px 10px;
+}
+
+.comment__text {
+  grid-column: 2;
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--color-comment);
+}
+
+.comment__reply {
+  grid-column: 2;
+  padding-top: 8px;
+}
+
+.read-more__chevron {
+  transition: rotate var(--duration-base);
+}
+
+.read-more[aria-expanded="true"] .read-more__chevron {
+  rotate: 180deg;
+}
+
+.plan__page {
+  animation: plan-page-in var(--duration-base) ease-out;
+}
+
+@keyframes plan-page-in {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+
+.plan {
+  --dialog-width: 525px;
+  --dialog-height: 772px;
+
+  overflow: visible;
+  border: 2px solid var(--color-plan);
+  border-left-width: 14px;
+  background-color: var(--color-surface-sunken);
+}
+
+.plan::before {
+  display: none;
+}
+
+.plan__summary {
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-surface-raised),
+    var(--color-surface-sunken)
+  );
+}
+
+.plan__tasks {
+  position: relative;
+}
+
+.plan__tasks::before {
+  content: "";
+  position: absolute;
+  top: 32px;
+  bottom: 32px;
+  left: 7px;
+  width: 2px;
+  background-color: var(--color-border);
+}
+
+.plan__page-dot {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-numeric);
+  font-size: 18px;
+  color: var(--color-subtle-foreground);
+  cursor: pointer;
+  transition-property: border-color, color;
+  transition-duration: var(--duration-fast);
+}
+
+.plan__page-dot:hover {
+  border-color: var(--color-border-hover);
+}
+
+.plan__page-dot[aria-current="page"] {
+  border-color: var(--color-glow);
+  box-shadow:
+    inset 0 0 0 3px var(--color-surface-sunken),
+    inset 0 0 0 20px var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+
+.plan__arrow {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--color-foreground);
+  cursor: pointer;
+  transition: color var(--duration-fast);
+}
+
+.plan__arrow:hover {
+  color: var(--color-glow);
+  filter: drop-shadow(0 0 8px var(--color-glow));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fan-chart__level,
+  .fan-chart__level-flash,
+  .fan-chart__medal,
+  .fan-chart__peak,
+  .like__button::before,
+  .like__button::after,
+  .plan__page {
+    animation: none;
+  }
+}

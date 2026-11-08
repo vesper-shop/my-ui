@@ -1,0 +1,24 @@
+@layer components {
+  .fg-tooltip__positioner {
+    z-index: 20;
+  }
+
+  .fg-tooltip__popup {
+    padding: 6px 12px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-charcoal);
+    font-size: var(--text-caption);
+    line-height: 1.4;
+    white-space: nowrap;
+    color: var(--color-paper);
+    box-shadow: var(--shadow-hard);
+    transition-property: opacity, translate;
+    transition-duration: var(--duration-fast);
+  }
+
+  .fg-tooltip__popup[data-starting-style],
+  .fg-tooltip__popup[data-ending-style] {
+    opacity: 0;
+    translate: 0 4px;
+  }
+}

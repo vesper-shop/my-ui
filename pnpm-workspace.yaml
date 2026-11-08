@@ -1,0 +1,11 @@
+packages:
+  - "packages/*"
+  - "apps/*"
+  - "tests"
+  - "promo"
+
+allowBuilds:
+  esbuild: true
+  workerd: true
+
+minimumReleaseAge: 1440

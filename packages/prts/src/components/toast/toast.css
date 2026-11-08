@@ -1,0 +1,77 @@
+@layer components {
+  .pr-toast__viewport {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    pointer-events: none;
+    outline: none;
+  }
+
+  .pr-toast {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    background-color: var(--color-veil);
+    box-shadow: var(--shadow-md);
+    font-size: 20px;
+    color: var(--color-foreground);
+    translate: 0 -50%;
+    transition-property: opacity, clip-path;
+    transition-duration: var(--duration-base);
+    clip-path: inset(0);
+  }
+
+  .pr-toast[data-type="corner"] {
+    top: 56px;
+    right: 0;
+    left: auto;
+    width: 320px;
+    height: 72px;
+    justify-content: flex-start;
+    gap: 16px;
+    padding-inline: 18px 20px;
+    background-color: var(--color-black);
+    background-image:
+      linear-gradient(90deg, transparent, var(--color-black) 55%), var(--pattern-halftone);
+    background-size:
+      100% 100%,
+      5px 5px;
+    box-shadow: none;
+    font-size: 16px;
+    line-height: 1.35;
+    color: var(--color-white);
+    translate: 0;
+  }
+
+  .pr-toast[data-starting-style],
+  .pr-toast[data-ending-style],
+  .pr-toast[data-limited] {
+    opacity: 0;
+    clip-path: inset(50% 0);
+  }
+
+  .pr-toast__description {
+    font-size: 14px;
+    color: var(--color-muted-foreground);
+  }
+
+  .pr-toast__action,
+  .pr-toast__close {
+    color: inherit;
+    cursor: pointer;
+    pointer-events: auto;
+    outline: none;
+  }
+
+  .pr-toast__action:focus-visible,
+  .pr-toast__close:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+}

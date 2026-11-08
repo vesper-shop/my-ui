@@ -1,0 +1,61 @@
+@layer components {
+  .fg-button {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition-property: background-color, color, translate, box-shadow;
+    transition-duration: var(--duration-fast);
+  }
+
+  .fg-button[data-variant="default"] {
+    height: var(--size-control);
+    padding-inline: 22px;
+    border: var(--size-frame) solid var(--color-ink);
+    border-radius: var(--radius-full);
+    background-color: var(--color-accent);
+    box-shadow: var(--shadow-hard);
+    font-size: var(--text-body);
+    font-weight: 700;
+    color: var(--color-accent-foreground);
+  }
+
+  .fg-button[data-variant="default"]:hover:not([data-disabled]) {
+    background-color: var(--color-accent-deep);
+  }
+
+  .fg-button[data-variant="default"]:active:not([data-disabled]) {
+    box-shadow: none;
+    translate: 2px 3px;
+  }
+
+  .fg-button[data-variant="ghost"] {
+    font-size: 14px;
+    color: var(--color-muted-foreground);
+  }
+
+  .fg-button[data-variant="ghost"]:hover:not([data-disabled]) {
+    color: var(--color-accent);
+  }
+
+  .fg-button:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  .fg-button[data-disabled] {
+    color: var(--color-disabled-foreground);
+    cursor: default;
+  }
+
+  .fg-button[data-variant="default"][data-disabled] {
+    border-color: var(--color-border);
+    background-color: var(--color-chip);
+    box-shadow: none;
+  }
+}

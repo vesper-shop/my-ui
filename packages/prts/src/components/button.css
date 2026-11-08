@@ -1,0 +1,51 @@
+@layer components {
+  .pr-button {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: var(--size-control);
+    padding-inline: 22px;
+    box-shadow: var(--shadow-control);
+    font-size: 16px;
+    white-space: nowrap;
+    color: var(--color-white);
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition-property: background-color, filter, translate, box-shadow;
+    transition-duration: var(--duration-fast);
+  }
+
+  .pr-button[data-variant="default"] {
+    background-color: var(--color-accent);
+  }
+
+  .pr-button[data-variant="ghost"] {
+    background-color: var(--color-steel);
+  }
+
+  .pr-button:hover:not([data-disabled]) {
+    filter: brightness(1.12);
+  }
+
+  .pr-button:active:not([data-disabled]) {
+    box-shadow: none;
+    filter: brightness(0.9);
+    translate: 0 2px;
+  }
+
+  .pr-button:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  .pr-button[data-disabled] {
+    background-color: var(--color-disabled-foreground);
+    box-shadow: none;
+    color: var(--color-divider);
+    cursor: default;
+  }
+}

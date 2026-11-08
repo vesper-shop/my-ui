@@ -1,0 +1,16 @@
+@utility bg-hatched {
+  background-image: var(--pattern-hatch);
+}
+
+@utility bg-plate {
+  background-image: linear-gradient(to bottom, var(--color-steel-top), var(--color-steel));
+}
+
+@utility bg-section {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-header-from),
+    var(--color-header-to) 70%,
+    transparent
+  );
+}

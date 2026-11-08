@@ -1,0 +1,63 @@
+@layer components {
+  .ik-mark {
+    display: block;
+    width: 60px;
+    height: 36px;
+    overflow: visible;
+  }
+
+  .ik-mark__outline {
+    fill: none;
+    stroke: var(--color-chrome);
+    stroke-width: 7;
+  }
+
+  .ik-mark__plate {
+    fill: var(--color-danger);
+    stroke: var(--color-danger);
+    stroke-width: 4;
+  }
+
+  .ik-mark__line {
+    fill: none;
+    stroke: var(--color-chrome);
+    stroke-width: 1.6;
+  }
+
+  .ik-mark__glyph {
+    fill: none;
+    stroke: var(--color-chrome);
+    stroke-linecap: round;
+    stroke-width: 4.8;
+  }
+
+  .ik-mark__plate,
+  .ik-mark__line {
+    transition-property: fill, stroke, opacity;
+    transition-duration: 0s;
+    transition-delay: var(--duration-pulse);
+  }
+
+  :is(:active, [data-pressing]) > .ik-mark .ik-mark__plate {
+    fill: var(--color-accent);
+    stroke: var(--color-accent);
+    stroke-width: calc(4px + var(--ik-pop) * 2);
+    transition-delay: 0s;
+    animation: ik-pulse var(--duration-pulse) ease-in-out infinite alternate;
+  }
+
+  [data-pressing] > .ik-mark .ik-mark__plate {
+    animation: ik-press var(--duration-press) ease-out;
+  }
+
+  :is(:active, [data-pressing]) > .ik-mark .ik-mark__line {
+    opacity: 0;
+    transition-delay: 0s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :is(:active, [data-pressing]) > .ik-mark .ik-mark__plate {
+      animation: none;
+    }
+  }
+}

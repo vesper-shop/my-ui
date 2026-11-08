@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="zh-CN" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Lora";
+        font-weight: 400 700;
+        src: url("assets/fonts/lora-latin-wght-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "PingFang SC";
+        src: local("PingFang SC");
+      }
+      @font-face {
+        font-family: "Menlo";
+        src: local("Menlo");
+      }
+      :root {
+        --paper: #f7f6f2;
+        --ink: #2d3038;
+        --muted: #606775;
+        --accent: #526682;
+        --amber: #806127;
+        --font-name: "Lora", Georgia, serif;
+        --font-text: "PingFang SC", sans-serif;
+        --font-mono: "Menlo", monospace;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--font-text);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(circle, #d6dae1 1.5px, transparent 2px);
+        background-size: 32px 32px;
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+      }
+      .center {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+      }
+      .name {
+        font: 600 220px/1 var(--font-name);
+        letter-spacing: -0.04em;
+        text-decoration: underline 8px var(--accent);
+        text-underline-offset: 0.16em;
+      }
+      .column {
+        position: absolute;
+        top: 210px;
+        left: 140px;
+        width: 620px;
+      }
+      .kicker {
+        display: inline-block;
+        padding: 6px 14px;
+        border: 3px solid var(--amber);
+        font: 600 28px/1.3 var(--font-mono);
+        letter-spacing: 0.12em;
+        color: var(--amber);
+        rotate: -3deg;
+      }
+      .title {
+        margin-top: 28px;
+        font: 600 92px/1.1 var(--font-text);
+      }
+      .sub {
+        margin-top: 16px;
+        font-size: 34px;
+        color: var(--muted);
+      }
+      .bubble {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 14px 20px;
+        border: 3px solid var(--ink);
+        border-radius: 18px;
+        background: #fff;
+        box-shadow: 6px 6px 0 var(--ink);
+      }
+      .bubble img {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .bubble b {
+        font-size: 28px;
+        color: var(--accent);
+      }
+      .bubble p {
+        margin-top: 2px;
+        font-size: 30px;
+      }
+      .frame {
+        top: 220px;
+        left: 820px;
+        width: 960px;
+        height: 600px;
+        overflow: hidden;
+        border: 5px solid var(--accent);
+        border-radius: 18px;
+        box-shadow:
+          16px 18px 0 rgb(0 0 0 / 0.45),
+          0 0 60px color-mix(in srgb, var(--accent) 45%, transparent);
+        z-index: 3;
+      }
+      .glare {
+        position: absolute;
+        top: -20%;
+        left: 0;
+        width: 22%;
+        height: 140%;
+        background: linear-gradient(100deg, transparent, rgb(255 255 255 / 0.35), transparent);
+        rotate: 12deg;
+      }
+      .footage {
+        top: 220px;
+        left: 820px;
+        width: 960px;
+        height: 600px;
+        border-radius: 18px;
+        object-fit: cover;
+        z-index: 2;
+      }
+      .mini {
+        width: 800px;
+        height: 400px;
+        inset: auto;
+        border: 4px solid var(--ink);
+        border-radius: 14px;
+        box-shadow: 10px 10px 0 var(--ink);
+        object-fit: cover;
+        z-index: 2;
+      }
+      .wipe {
+        z-index: 10;
+      }
+      .frame {
+        top: 220px;
+        left: 820px;
+        width: 960px;
+        height: 600px;
+        overflow: hidden;
+        border: 5px solid var(--accent);
+        border-radius: 18px;
+        box-shadow:
+          16px 18px 0 rgb(0 0 0 / 0.45),
+          0 0 60px color-mix(in srgb, var(--accent) 45%, transparent);
+        z-index: 3;
+      }
+      .glare {
+        position: absolute;
+        top: -20%;
+        left: 0;
+        width: 22%;
+        height: 140%;
+        background: linear-gradient(100deg, transparent, rgb(255 255 255 / 0.35), transparent);
+        rotate: 12deg;
+      }
+      .footage {
+        top: 220px;
+        left: 820px;
+        width: 960px;
+        height: 600px;
+        border-radius: 18px;
+        object-fit: cover;
+        z-index: 2;
+      }
+      .mini {
+        width: 800px;
+        height: 400px;
+        inset: auto;
+        border: 4px solid var(--ink);
+        border-radius: 14px;
+        box-shadow: 10px 10px 0 var(--ink);
+        object-fit: cover;
+        z-index: 2;
+      }
+      .wipe {
+        z-index: 10;
+      }
+      .frame {
+        top: 220px;
+        left: 820px;
+        width: 960px;
+        height: 600px;
+        overflow: hidden;
+        border: 5px solid var(--accent);
+        border-radius: 18px;
+        box-shadow:
+          16px 18px 0 rgb(0 0 0 / 0.45),
+          0 0 60px color-mix(in srgb, var(--accent) 45%, transparent);
+        z-index: 3;
+      }
+      .glare {
+        position: absolute;
+        top: -20%;
+        left: 0;
+        width: 22%;
+        height: 140%;
+        background: linear-gradient(100deg, transparent, rgb(255 255 255 / 0.35), transparent);
+        rotate: 12deg;
+      }
+      .footage {
+        top: 220px;
+        left: 820px;
+        width: 960px;
+        height: 600px;
+        border-radius: 18px;
+        object-fit: cover;
+        z-index: 2;
+      }
+      .mini {
+        width: 800px;
+        height: 400px;
+        inset: auto;
+        border: 4px solid var(--ink);
+        border-radius: 14px;
+        box-shadow: 10px 10px 0 var(--ink);
+        object-fit: cover;
+        z-index: 2;
+      }
+      .wipe {
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="86"
+      data-width="1920"
+      data-height="1080"
+    >
+      <audio
+        id="soundtrack"
+        class="clip"
+        src="assets/audio/soundtrack.m4a"
+        data-start="0"
+        data-duration="86"
+        data-volume="1"
+        data-track-index="0"
+      ></audio>
+      <div
+        id="s-opening"
+        class="clip"
+        data-composition-id="opening"
+        data-composition-src="compositions/opening.html"
+        data-start="0"
+        data-duration="4"
+        data-track-index="1"
+      ></div>
+      <div
+        id="s-inter-knot"
+        class="clip"
+        data-composition-id="inter-knot"
+        data-composition-src="compositions/inter-knot.html"
+        data-start="4"
+        data-duration="16"
+        data-track-index="1"
+      ></div>
+      <div
+        id="s-ghostly-grove"
+        class="clip"
+        data-composition-id="ghostly-grove"
+        data-composition-src="compositions/ghostly-grove.html"
+        data-start="20"
+        data-duration="16"
+        data-track-index="1"
+      ></div>
+      <div
+        id="s-furbobo-gossip"
+        class="clip"
+        data-composition-id="furbobo-gossip"
+        data-composition-src="compositions/furbobo-gossip.html"
+        data-start="36"
+        data-duration="16"
+        data-track-index="1"
+      ></div>
+      <div
+        id="s-prts"
+        class="clip"
+        data-composition-id="prts"
+        data-composition-src="compositions/prts.html"
+        data-start="52"
+        data-duration="16"
+        data-track-index="1"
+      ></div>
+      <div
+        id="s-grid"
+        class="clip"
+        data-composition-id="grid"
+        data-composition-src="compositions/grid.html"
+        data-start="68"
+        data-duration="8"
+        data-track-index="1"
+      ></div>
+      <div
+        id="s-end"
+        class="clip"
+        data-composition-id="end"
+        data-composition-src="compositions/end.html"
+        data-start="76"
+        data-duration="10"
+        data-track-index="1"
+      ></div>
+      <video
+        id="v-inter-knot"
+        class="clip footage"
+        src="footage/inter-knot.mp4"
+        muted
+        data-start="5"
+        data-duration="14"
+        data-track-index="2"
+      ></video>
+      <div
+        id="f-inter-knot"
+        class="clip frame"
+        data-start="5"
+        data-duration="14"
+        data-track-index="3"
+        style="--accent: #f9dc00"
+      >
+        <span class="glare"></span>
+      </div>
+      <div
+        id="w-inter-knot"
+        class="clip wipe"
+        data-start="19.3"
+        data-duration="1.4"
+        data-track-index="4"
+        style="background: #6efff8"
+      ></div>
+      <video
+        id="v-ghostly-grove"
+        class="clip footage"
+        src="footage/ghostly-grove.mp4"
+        muted
+        data-start="21"
+        data-duration="14"
+        data-track-index="2"
+      ></video>
+      <div
+        id="f-ghostly-grove"
+        class="clip frame"
+        data-start="21"
+        data-duration="14"
+        data-track-index="3"
+        style="--accent: #6efff8"
+      >
+        <span class="glare"></span>
+      </div>
+      <div
+        id="w-ghostly-grove"
+        class="clip wipe"
+        data-start="35.3"
+        data-duration="1.4"
+        data-track-index="4"
+        style="background: #f3933e"
+      ></div>
+      <video
+        id="v-furbobo-gossip"
+        class="clip footage"
+        src="footage/furbobo-gossip.mp4"
+        muted
+        data-start="37"
+        data-duration="13.15"
+        data-track-index="2"
+      ></video>
+      <div
+        id="f-furbobo-gossip"
+        class="clip frame"
+        data-start="37"
+        data-duration="13.15"
+        data-track-index="3"
+        style="--accent: #f3933e"
+      >
+        <span class="glare"></span>
+      </div>
+      <div
+        id="w-furbobo-gossip"
+        class="clip wipe"
+        data-start="51.3"
+        data-duration="1.4"
+        data-track-index="4"
+        style="background: #0e6d92"
+      ></div>
+      <video
+        id="v-prts"
+        class="clip footage"
+        src="footage/prts.mp4"
+        muted
+        data-start="53"
+        data-duration="14"
+        data-track-index="2"
+      ></video>
+      <div
+        id="f-prts"
+        class="clip frame"
+        data-start="53"
+        data-duration="14"
+        data-track-index="3"
+        style="--accent: #18a3dc"
+      >
+        <span class="glare"></span>
+      </div>
+      <div
+        id="w-prts"
+        class="clip wipe"
+        data-start="67.3"
+        data-duration="1.4"
+        data-track-index="4"
+        style="background: #f7f6f2"
+      ></div>
+      <video
+        id="g-inter-knot"
+        class="clip mini"
+        src="footage/inter-knot.mp4"
+        muted
+        data-start="68"
+        data-duration="8"
+        data-media-start="4"
+        data-track-index="2"
+        style="left: 140px; top: 200px"
+      ></video>
+      <video
+        id="g-ghostly-grove"
+        class="clip mini"
+        src="footage/ghostly-grove.mp4"
+        muted
+        data-start="68"
+        data-duration="8"
+        data-media-start="4"
+        data-track-index="2"
+        style="left: 980px; top: 200px"
+      ></video>
+      <video
+        id="g-furbobo-gossip"
+        class="clip mini"
+        src="footage/furbobo-gossip.mp4"
+        muted
+        data-start="68"
+        data-duration="8"
+        data-media-start="4"
+        data-track-index="2"
+        style="left: 140px; top: 640px"
+      ></video>
+      <video
+        id="g-prts"
+        class="clip mini"
+        src="footage/prts.mp4"
+        muted
+        data-start="68"
+        data-duration="8"
+        data-media-start="4"
+        data-track-index="2"
+        style="left: 980px; top: 640px"
+      ></video>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.from(
+        "#v-inter-knot, #f-inter-knot",
+        {
+          xPercent: 60,
+          yPercent: 10,
+          rotation: 6,
+          scale: 0.7,
+          opacity: 0,
+          duration: 0.7,
+          ease: "back.out(1.4)",
+        },
+        5,
+      );
+      tl.to(
+        "#v-inter-knot, #f-inter-knot",
+        { scale: 1.05, duration: 12.4, ease: "sine.inOut" },
+        5.8,
+      );
+      tl.set("#f-inter-knot .glare", { xPercent: -150 }, 0);
+      tl.to("#f-inter-knot .glare", { xPercent: 450, duration: 1.1, ease: "power2.inOut" }, 6.2);
+      tl.set("#f-inter-knot .glare", { xPercent: -150 }, 8);
+      tl.to("#f-inter-knot .glare", { xPercent: 450, duration: 1.1, ease: "power2.inOut" }, 13.2);
+      tl.to(
+        "#v-inter-knot, #f-inter-knot",
+        { scale: 0.6, opacity: 0, duration: 0.4, ease: "power2.in" },
+        18.6,
+      );
+      tl.fromTo(
+        "#w-inter-knot",
+        { xPercent: -100 },
+        { xPercent: 0, duration: 0.6, ease: "power3.inOut" },
+        19.3,
+      );
+      tl.to("#w-inter-knot", { xPercent: 100, duration: 0.6, ease: "power3.inOut" }, 20.05);
+      tl.from(
+        "#v-ghostly-grove, #f-ghostly-grove",
+        {
+          xPercent: 60,
+          yPercent: 10,
+          rotation: 6,
+          scale: 0.7,
+          opacity: 0,
+          duration: 0.7,
+          ease: "back.out(1.4)",
+        },
+        21,
+      );
+      tl.to(
+        "#v-ghostly-grove, #f-ghostly-grove",
+        { scale: 1.05, duration: 12.4, ease: "sine.inOut" },
+        21.8,
+      );
+      tl.set("#f-ghostly-grove .glare", { xPercent: -150 }, 0);
+      tl.to(
+        "#f-ghostly-grove .glare",
+        { xPercent: 450, duration: 1.1, ease: "power2.inOut" },
+        22.2,
+      );
+      tl.set("#f-ghostly-grove .glare", { xPercent: -150 }, 24);
+      tl.to(
+        "#f-ghostly-grove .glare",
+        { xPercent: 450, duration: 1.1, ease: "power2.inOut" },
+        29.2,
+      );
+      tl.to(
+        "#v-ghostly-grove, #f-ghostly-grove",
+        { scale: 0.6, opacity: 0, duration: 0.4, ease: "power2.in" },
+        34.6,
+      );
+      tl.fromTo(
+        "#w-ghostly-grove",
+        { xPercent: -100 },
+        { xPercent: 0, duration: 0.6, ease: "power3.inOut" },
+        35.3,
+      );
+      tl.to("#w-ghostly-grove", { xPercent: 100, duration: 0.6, ease: "power3.inOut" }, 36.05);
+      tl.from(
+        "#v-furbobo-gossip, #f-furbobo-gossip",
+        {
+          xPercent: 60,
+          yPercent: 10,
+          rotation: 6,
+          scale: 0.7,
+          opacity: 0,
+          duration: 0.7,
+          ease: "back.out(1.4)",
+        },
+        37,
+      );
+      tl.to(
+        "#v-furbobo-gossip, #f-furbobo-gossip",
+        { scale: 1.05, duration: 11.620000000000001, ease: "sine.inOut" },
+        37.8,
+      );
+      tl.set("#f-furbobo-gossip .glare", { xPercent: -150 }, 0);
+      tl.to(
+        "#f-furbobo-gossip .glare",
+        { xPercent: 450, duration: 1.1, ease: "power2.inOut" },
+        38.2,
+      );
+      tl.set("#f-furbobo-gossip .glare", { xPercent: -150 }, 40);
+      tl.to(
+        "#f-furbobo-gossip .glare",
+        { xPercent: 450, duration: 1.1, ease: "power2.inOut" },
+        45.2,
+      );
+      tl.to(
+        "#v-furbobo-gossip, #f-furbobo-gossip",
+        { scale: 0.6, opacity: 0, duration: 0.4, ease: "power2.in" },
+        49.75,
+      );
+      tl.fromTo(
+        "#w-furbobo-gossip",
+        { xPercent: -100 },
+        { xPercent: 0, duration: 0.6, ease: "power3.inOut" },
+        51.3,
+      );
+      tl.to("#w-furbobo-gossip", { xPercent: 100, duration: 0.6, ease: "power3.inOut" }, 52.05);
+      tl.from(
+        "#v-prts, #f-prts",
+        {
+          xPercent: 60,
+          yPercent: 10,
+          rotation: 6,
+          scale: 0.7,
+          opacity: 0,
+          duration: 0.7,
+          ease: "back.out(1.4)",
+        },
+        53,
+      );
+      tl.to("#v-prts, #f-prts", { scale: 1.05, duration: 12.4, ease: "sine.inOut" }, 53.8);
+      tl.set("#f-prts .glare", { xPercent: -150 }, 0);
+      tl.to("#f-prts .glare", { xPercent: 450, duration: 1.1, ease: "power2.inOut" }, 54.2);
+      tl.set("#f-prts .glare", { xPercent: -150 }, 56);
+      tl.to("#f-prts .glare", { xPercent: 450, duration: 1.1, ease: "power2.inOut" }, 61.2);
+      tl.to("#v-prts, #f-prts", { scale: 0.6, opacity: 0, duration: 0.4, ease: "power2.in" }, 66.6);
+      tl.fromTo(
+        "#w-prts",
+        { xPercent: -100 },
+        { xPercent: 0, duration: 0.6, ease: "power3.inOut" },
+        67.3,
+      );
+      tl.to("#w-prts", { xPercent: 100, duration: 0.6, ease: "power3.inOut" }, 68.05);
+      tl.from(
+        ".mini",
+        {
+          scale: 0,
+          rotation: (i) => (i % 2 === 0 ? -8 : 8),
+          duration: 0.5,
+          ease: "back.out(1.8)",
+          stagger: 0.25,
+        },
+        68.4,
+      );
+      tl.to(
+        ".mini",
+        { y: -10, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 11, stagger: 0.12 },
+        69.6,
+      );
+      tl.to(".mini", { scale: 0.8, opacity: 0, duration: 0.3 }, 75.6);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

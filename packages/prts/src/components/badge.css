@@ -1,0 +1,24 @@
+@layer components {
+  .pr-badge {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 3px;
+    height: 20px;
+    padding-inline: 6px;
+    font-size: 13px;
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .pr-badge[data-variant="default"] {
+    background-color: var(--color-steel);
+    color: var(--color-white);
+  }
+
+  .pr-badge[data-variant="secondary"] {
+    background-color: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+}

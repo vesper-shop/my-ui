@@ -1,0 +1,117 @@
+@layer components {
+  .ik-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ik-tabs[data-orientation="vertical"] {
+    flex-direction: row;
+  }
+
+  .ik-tabs__list {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: stretch;
+    width: fit-content;
+    height: var(--size-control);
+    border: var(--size-frame) solid var(--color-border);
+    border-radius: var(--radius-control);
+    background-color: var(--color-chrome);
+    @apply bg-dots;
+    box-shadow: var(--shadow-hairline);
+  }
+
+  .ik-tabs__list[data-orientation="vertical"] {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .ik-tabs__tab {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 36px;
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+    font-style: italic;
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--color-foreground);
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition: color var(--duration-base);
+  }
+
+  .ik-tabs__tab[data-orientation="vertical"] {
+    height: 32px;
+  }
+
+  .ik-tabs__tab[data-active] {
+    color: var(--color-accent-foreground);
+  }
+
+  .ik-tabs__tab:focus-visible {
+    text-decoration: underline 2px;
+    text-underline-offset: 4px;
+  }
+
+  .ik-tabs__tab[data-disabled] {
+    color: var(--color-disabled-foreground);
+    cursor: default;
+  }
+
+  .ik-tabs__indicator {
+    position: absolute;
+    inset: calc(var(--size-frame) * -1 - 4px);
+    overflow: hidden;
+    border-radius: calc(var(--radius-control) + 4px);
+    pointer-events: none;
+  }
+
+  .ik-tabs__indicator::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--active-tab-left) - 1px);
+    width: calc(var(--active-tab-width) + 16px);
+    border-radius: 8px;
+    background-color: var(--color-accent);
+    transform: skewX(-22deg);
+    transition-property: left, top, width, height;
+    transition-duration: var(--duration-base);
+    animation: ik-pulse var(--duration-pulse) ease-in-out infinite alternate;
+  }
+
+  .ik-tabs__indicator[data-orientation="vertical"]::before {
+    top: calc(var(--active-tab-top) + var(--size-frame) + 4px);
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: auto;
+    height: var(--active-tab-height);
+    border-radius: 0;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ik-tabs__indicator::before {
+      animation: none;
+    }
+  }
+
+  .ik-tabs__panel {
+    outline: none;
+  }
+
+  .ik-tabs__panel:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 4px;
+  }
+}

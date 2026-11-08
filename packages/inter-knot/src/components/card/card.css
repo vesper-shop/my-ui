@@ -1,0 +1,96 @@
+@layer components {
+  .ik-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: var(--size-frame) solid var(--color-chrome);
+    border-radius: var(--radius-card);
+    background-color: var(--color-surface);
+    color: var(--color-foreground);
+    cursor: pointer;
+    transition: border-color var(--duration-fast);
+  }
+
+  .ik-card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .ik-card__media {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--color-surface-raised);
+  }
+
+  .ik-card__media > img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .ik-card__body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 4px 12px 12px;
+  }
+
+  .ik-card__header {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    height: 26px;
+    align-items: flex-end;
+    gap: 4px;
+    margin-left: 46px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--color-divider);
+    font-size: 13px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    color: var(--color-subtle-foreground);
+  }
+
+  .ik-card__avatar {
+    --avatar-size: 44px;
+    --avatar-ring: var(--color-chrome);
+
+    position: absolute;
+    bottom: 0;
+    left: -50px;
+    display: flex;
+  }
+
+  .ik-card__title {
+    display: -webkit-box;
+    margin-top: 8px;
+    overflow: hidden;
+    font-size: 15px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.4;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .ik-card__description {
+    margin-top: 4px;
+    overflow: hidden;
+    font-size: 13px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.4;
+    color: var(--color-subtle-foreground);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ik-card__footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-subtle-foreground);
+  }
+}

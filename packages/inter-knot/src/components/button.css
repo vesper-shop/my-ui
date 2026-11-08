@@ -1,0 +1,86 @@
+@layer components {
+  .ik-button {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: var(--size-control);
+    border-radius: var(--radius-control);
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+    font-style: italic;
+    white-space: nowrap;
+    color: var(--color-foreground);
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    transition: color 0s linear var(--duration-pulse);
+  }
+
+  .ik-button::before {
+    content: "";
+    position: absolute;
+    inset: calc(var(--size-frame) * -1 - 2px - var(--ik-pop));
+    z-index: -1;
+    border-radius: calc(var(--radius-control) + 2px + var(--ik-pop));
+    background-color: var(--color-accent);
+    opacity: 0;
+    transition: opacity 0s linear var(--duration-pulse);
+    animation: ik-pulse var(--duration-pulse) ease-in-out infinite alternate;
+  }
+
+  .ik-button[data-variant="default"] {
+    min-width: 120px;
+    padding-inline: 28px;
+    border: var(--size-frame) solid var(--color-border);
+    background-color: var(--color-chrome);
+    @apply bg-dots;
+    box-shadow: var(--shadow-hairline);
+  }
+
+  .ik-button[data-variant="ghost"] {
+    padding-inline: 16px;
+  }
+
+  .ik-button[data-variant="ghost"]::before {
+    inset: calc(-2px - var(--ik-pop));
+    border-radius: inherit;
+  }
+
+  .ik-button:is(:active, [data-pressing]):not([data-disabled]) {
+    color: var(--color-accent-foreground);
+    transition-delay: 0s;
+  }
+
+  .ik-button:is(:active, [data-pressing]):not([data-disabled])::before {
+    opacity: 1;
+    transition-delay: 0s;
+  }
+
+  .ik-button[data-pressing]:not([data-disabled])::before {
+    animation: ik-press var(--duration-press) ease-out;
+  }
+
+  .ik-button:focus-visible {
+    border-color: var(--color-focus);
+  }
+
+  .ik-button[data-variant="ghost"]:focus-visible {
+    background-color: var(--color-surface);
+  }
+
+  .ik-button[data-disabled] {
+    color: var(--color-disabled-foreground);
+    cursor: default;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ik-button::before,
+    .ik-button[data-pressing]:not([data-disabled])::before {
+      animation: none;
+    }
+  }
+}

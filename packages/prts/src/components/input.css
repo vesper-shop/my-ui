@@ -1,0 +1,34 @@
+@layer components {
+  .pr-input {
+    width: 100%;
+    min-width: 0;
+    height: var(--size-control);
+    padding-inline: 12px;
+    border: 1px solid var(--color-steel-light);
+    background-color: color-mix(in srgb, var(--color-steel) 70%, transparent);
+    font-size: 15px;
+    color: var(--color-white);
+    outline: none;
+    transition: border-color var(--duration-fast);
+  }
+
+  .pr-input::placeholder {
+    color: var(--color-disabled-foreground);
+  }
+
+  .pr-input:hover {
+    border-color: var(--color-steel-top);
+  }
+
+  .pr-input:focus-visible {
+    border-color: var(--color-accent);
+  }
+
+  .pr-input[data-invalid] {
+    border-color: var(--color-danger-light);
+  }
+
+  .pr-input[data-disabled] {
+    color: var(--color-disabled-foreground);
+  }
+}

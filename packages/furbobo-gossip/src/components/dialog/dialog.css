@@ -1,0 +1,106 @@
+@layer components {
+  .fg-dialog__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background-color: var(--color-overlay);
+    backdrop-filter: blur(16px);
+    transition: opacity var(--duration-base);
+  }
+
+  .fg-dialog__backdrop[data-starting-style],
+  .fg-dialog__backdrop[data-ending-style] {
+    opacity: 0;
+  }
+
+  .fg-dialog__popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    width: min(var(--dialog-width, 1040px), calc(100vw - 32px));
+    height: min(var(--dialog-height, 610px), calc(100dvh - 32px));
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    @apply bg-dots;
+    background-color: var(--color-surface-sunken);
+    box-shadow:
+      3px 4px 0 var(--color-ink),
+      var(--shadow-lg);
+    color: var(--color-foreground);
+    outline: none;
+    translate: -50% -50%;
+    transition-property: opacity, scale;
+    transition-duration: var(--duration-base);
+  }
+
+  .fg-dialog__popup[data-starting-style],
+  .fg-dialog__popup[data-ending-style] {
+    opacity: 0;
+    scale: 0.96;
+  }
+
+  .fg-dialog__header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px 10px 24px;
+  }
+
+  .fg-dialog__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+    padding: 0 24px 24px;
+    overflow: hidden auto;
+  }
+
+  .fg-dialog__body > * {
+    flex-shrink: 0;
+  }
+
+  .fg-dialog__title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-ink);
+    text-wrap: balance;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    paint-order: stroke fill;
+    -webkit-text-stroke: 7px var(--color-paper);
+    filter: drop-shadow(0 0 1px var(--color-ink));
+  }
+
+  .fg-dialog__description {
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    color: var(--color-muted-foreground);
+  }
+
+  .fg-dialog__close {
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    color: var(--color-ink);
+    cursor: pointer;
+    outline: none;
+    transition: color var(--duration-fast);
+  }
+
+  .fg-dialog__close:hover {
+    color: var(--color-accent);
+  }
+
+  .fg-dialog__close:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 4px;
+  }
+}

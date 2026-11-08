@@ -1,0 +1,24 @@
+@layer components {
+  .gg-badge {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 4px;
+    font-size: 16px;
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .gg-badge[data-variant="default"] {
+    height: 24px;
+    padding-inline: 8px;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-warning);
+    color: var(--color-accent-foreground);
+  }
+
+  .gg-badge[data-variant="secondary"] {
+    color: var(--color-subtle-foreground);
+  }
+}

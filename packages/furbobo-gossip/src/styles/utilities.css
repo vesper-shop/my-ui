@@ -1,0 +1,14 @@
+@utility bg-dots {
+  background-image: var(--pattern-dots);
+  background-size: var(--pattern-dots-size);
+}
+
+@utility bg-sidebar {
+  background-image: linear-gradient(160deg, var(--color-sidebar-from), var(--color-sidebar-to));
+  background-size: 100% 100%;
+}
+
+@utility bg-banner {
+  background-image: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  background-size: 100% 100%;
+}

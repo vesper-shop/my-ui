@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+  <body>
+    <div
+      id="ghostly-grove"
+      data-composition-id="ghostly-grove"
+      data-start="0"
+      data-duration="16"
+      data-width="1920"
+      data-height="1080"
+    >
+      <style>
+        #ghostly-grove {
+          background: #141619;
+          color: #ffffff;
+        }
+        #ghostly-grove .marquee {
+          position: absolute;
+          top: 30px;
+          left: 0;
+          white-space: nowrap;
+          font: italic 900 260px/1 var(--font-name);
+          color: transparent;
+          -webkit-text-stroke: 3px #6efff8;
+          opacity: 0.25;
+        }
+        #ghostly-grove .side {
+          position: absolute;
+          top: 250px;
+          left: 120px;
+          width: 640px;
+        }
+        #ghostly-grove .index {
+          font: 700 28px/1 var(--font-mono);
+          color: #6efff8;
+          letter-spacing: 0.2em;
+        }
+        #ghostly-grove .zh {
+          margin-top: 16px;
+          font: 900 120px/1.05 var(--font-text);
+        }
+        #ghostly-grove .char {
+          display: inline-block;
+        }
+        #ghostly-grove .en {
+          margin-top: 6px;
+          font: 600 34px/1.2 var(--font-name);
+          opacity: 0.8;
+        }
+        #ghostly-grove .label {
+          margin-top: 36px;
+          font: 700 28px/1 var(--font-mono);
+          color: #6efff8;
+        }
+        #ghostly-grove .swatches {
+          display: flex;
+          gap: 18px;
+          margin-top: 14px;
+        }
+        #ghostly-grove .swatch {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 6px;
+          width: 110px;
+        }
+        #ghostly-grove .dot {
+          width: 84px;
+          height: 84px;
+          border: 4px solid #ffffff;
+          border-radius: 50%;
+        }
+        #ghostly-grove .swatch b {
+          font-size: 28px;
+        }
+        #ghostly-grove .swatch small {
+          font: 600 28px/1 var(--font-mono);
+          opacity: 0.85;
+        }
+        #ghostly-grove .keys {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 14px;
+        }
+        #ghostly-grove .key {
+          padding: 8px 18px;
+          border: 3px solid #ffffff;
+          border-radius: 10px;
+          font-size: 30px;
+          font-weight: 700;
+        }
+      </style>
+      <div class="marquee" data-layout-ignore>GHOSTLY GROVE · GHOSTLY GROVE · GHOSTLY GROVE</div>
+      <div class="side">
+        <div class="index">02 / 04</div>
+        <h2 class="zh">
+          <span class="char">罗</span><span class="char">浮</span><span class="char">杂</span
+          ><span class="char">俎</span>
+        </h2>
+        <p class="en">Ghostly Grove</p>
+        <p class="label">主题色</p>
+        <div class="swatches">
+          <div class="swatch">
+            <span class="dot" style="background: #141619"></span><b>深青底</b><small>#141619</small>
+          </div>
+          <div class="swatch">
+            <span class="dot" style="background: #23242d"></span><b>窗口灰</b><small>#23242D</small>
+          </div>
+          <div class="swatch">
+            <span class="dot" style="background: #6efff8"></span><b>辉光青</b><small>#6EFFF8</small>
+          </div>
+          <div class="swatch">
+            <span class="dot" style="background: #5ad7d6"></span><b>链接青</b><small>#5AD7D6</small>
+          </div>
+          <div class="swatch">
+            <span class="dot" style="background: #e5c67b"></span><b>标签金</b><small>#E5C67B</small>
+          </div>
+        </div>
+        <p class="label">风格</p>
+        <div class="keys">
+          <span class="key">方形细框</span><span class="key">六边形纹理</span
+          ><span class="key">青色辉光</span>
+        </div>
+      </div>
+      <script>
+        window.__timelines = window.__timelines || {};
+        const BEAT = 0.5;
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#ghostly-grove .marquee", { x: 0 }, { x: -800, duration: 16, ease: "none" }, 0);
+        tl.from(
+          "#ghostly-grove .index",
+          { x: -60, opacity: 0, duration: 0.4, ease: "power3.out" },
+          0.3,
+        );
+        tl.from(
+          "#ghostly-grove .char",
+          {
+            y: 120,
+            rotation: (i) => (i % 2 === 0 ? -18 : 18),
+            opacity: 0,
+            duration: 0.5,
+            ease: "back.out(2)",
+            stagger: 0.12,
+          },
+          0.4,
+        );
+        tl.from("#ghostly-grove .en", { y: 30, opacity: 0, duration: 0.4, ease: "power3.out" }, 1);
+        tl.from(
+          "#ghostly-grove .label",
+          { x: -40, opacity: 0, duration: 0.4, ease: "power3.out", stagger: 1.6 },
+          1.6,
+        );
+        tl.from(
+          "#ghostly-grove .dot",
+          { scale: 0, duration: 0.4, ease: "back.out(2.4)", stagger: BEAT / 2 },
+          1.8,
+        );
+        tl.from(
+          "#ghostly-grove .swatch b, #ghostly-grove .swatch small",
+          { y: 16, opacity: 0, duration: 0.3, stagger: 0.06 },
+          2.1,
+        );
+        tl.from(
+          "#ghostly-grove .key",
+          { scale: 0, rotation: -12, duration: 0.4, ease: "back.out(2.2)", stagger: BEAT },
+          3.4,
+        );
+        tl.to(
+          "#ghostly-grove .dot",
+          { scale: 1.15, duration: 0.25, yoyo: true, repeat: 1, stagger: 0.1 },
+          8,
+        );
+        tl.to(
+          "#ghostly-grove .side",
+          { x: -80, opacity: 0, duration: 0.35, ease: "power2.in" },
+          15.4,
+        );
+        window.__timelines["ghostly-grove"] = tl;
+      </script>
+    </div>
+  </body>
+</html>

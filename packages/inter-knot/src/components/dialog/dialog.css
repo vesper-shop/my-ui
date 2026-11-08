@@ -1,0 +1,112 @@
+@layer components {
+  .ik-dialog__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background-color: var(--color-overlay);
+    backdrop-filter: blur(6px);
+    transition: opacity var(--duration-slow);
+  }
+
+  .ik-dialog__backdrop::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--pattern-stripes);
+  }
+
+  .ik-dialog__backdrop[data-starting-style],
+  .ik-dialog__backdrop[data-ending-style] {
+    opacity: 0;
+  }
+
+  .ik-dialog__popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    width: min(var(--dialog-width, 540px), calc(100vw - 40px));
+    height: var(--dialog-height, auto);
+    max-height: calc(100dvh - 40px);
+    overflow: hidden;
+    border: 2px solid var(--color-chrome);
+    border-radius: var(--radius-window);
+    background-color: var(--color-window-body);
+    box-shadow: 0 0 0 6px var(--color-chrome);
+    outline: 4px solid var(--color-frame);
+    color: var(--color-foreground);
+    translate: -50% -50%;
+    transition-property: opacity, scale;
+    transition-duration: var(--duration-base);
+  }
+
+  .ik-dialog__popup[data-starting-style],
+  .ik-dialog__popup[data-ending-style] {
+    opacity: 0;
+    scale: 0.95;
+  }
+
+  .ik-dialog__header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 12px;
+    height: 72px;
+    padding-inline: 28px;
+    background-color: var(--color-window);
+    background-image:
+      linear-gradient(to bottom, transparent 40%, var(--color-shade)), var(--pattern-dots);
+    background-position:
+      0 0,
+      var(--pattern-dots-position);
+    background-size:
+      100% 100%,
+      var(--pattern-dots-size),
+      var(--pattern-dots-size);
+    font-size: 18px;
+    color: var(--color-window-title);
+  }
+
+  .ik-dialog__body {
+    position: relative;
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    gap: 16px;
+    padding: 20px 24px 24px;
+    background-color: var(--color-window-body);
+  }
+
+  .ik-dialog__title {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .ik-dialog__description {
+    font-size: 15px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.6;
+    color: var(--color-foreground);
+  }
+
+  .ik-dialog__close {
+    flex-shrink: 0;
+    margin-right: -8px;
+    margin-left: auto;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .ik-dialog__close:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 700px) {
+    .ik-dialog__body {
+      flex-direction: column;
+      overflow-y: auto;
+    }
+  }
+}

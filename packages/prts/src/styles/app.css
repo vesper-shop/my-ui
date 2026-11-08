@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./utilities.css";
+@import "../primitives/chevron-mark.css";
+@import "../primitives/close-mark.css";
+@import "../components/avatar/avatar.css";
+@import "../components/badge.css";
+@import "../components/button.css";
+@import "../components/card/card.css";
+@import "../components/dialog/dialog.css";
+@import "../components/input.css";
+@import "../components/number-field/number-field.css";
+@import "../components/progress/progress.css";
+@import "../components/select/select.css";
+@import "../components/separator.css";
+@import "../components/slider/slider.css";
+@import "../components/switch/switch.css";
+@import "../components/tabs/tabs.css";
+@import "../components/toast/toast.css";
+@import "../components/toggle.css";
+@import "../components/toggle-group.css";
+@import "../components/tooltip/tooltip.css";
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-steel) transparent;
+  }
+}

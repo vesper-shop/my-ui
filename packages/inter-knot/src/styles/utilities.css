@@ -1,0 +1,54 @@
+@utility bg-dots {
+  background-image: var(--pattern-dots);
+  background-position: var(--pattern-dots-position);
+  background-size: var(--pattern-dots-size);
+}
+
+@utility bg-stripes {
+  background-image: var(--pattern-stripes);
+}
+
+@utility mask-fade-y {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 24px,
+    #000,
+    #000 calc(100% - 24px),
+    transparent
+  );
+}
+
+@property --ik-pop {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@keyframes ik-pulse {
+  to {
+    background-color: var(--color-accent-strong);
+    fill: var(--color-accent-strong);
+    stroke: var(--color-accent-strong);
+  }
+}
+
+@keyframes ik-press {
+  0% {
+    --ik-pop: 0px;
+    background-color: var(--color-accent);
+    fill: var(--color-accent);
+    stroke: var(--color-accent);
+  }
+  15% {
+    --ik-pop: 6px;
+  }
+  45% {
+    --ik-pop: 0px;
+  }
+  100% {
+    background-color: var(--color-accent-strong);
+    fill: var(--color-accent-strong);
+    stroke: var(--color-accent-strong);
+  }
+}

@@ -1,0 +1,16 @@
+@layer components {
+  .fg-separator {
+    flex-shrink: 0;
+    background-color: var(--color-divider);
+  }
+
+  .fg-separator[data-orientation="horizontal"] {
+    width: 100%;
+    height: 1px;
+  }
+
+  .fg-separator[data-orientation="vertical"] {
+    width: 1px;
+    align-self: stretch;
+  }
+}

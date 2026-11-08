@@ -1,0 +1,90 @@
+@layer components {
+  .gg-mark {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gg-mark__bar {
+    position: absolute;
+    width: 46%;
+    height: 6%;
+    border-radius: var(--radius-sm);
+    background-color: currentColor;
+    transition-property: top, right, bottom, left, height;
+    transition-duration: var(--duration-fast);
+  }
+
+  .gg-mark__bar[data-corner="top-left"] {
+    top: 23%;
+    left: -2%;
+    transform: rotate(45deg) translate(0, -70%);
+  }
+
+  .gg-mark__bar[data-corner="top-right"] {
+    top: 23%;
+    right: -2%;
+    transform: rotate(-45deg) translate(0, -70%);
+  }
+
+  .gg-mark__bar[data-corner="bottom-left"] {
+    bottom: 23%;
+    left: -2%;
+    transform: rotate(-45deg) translate(0, 60%);
+  }
+
+  .gg-mark__bar[data-corner="bottom-right"] {
+    right: -2%;
+    bottom: 23%;
+    transform: rotate(45deg) translate(0, 60%);
+  }
+
+  :hover > .gg-mark .gg-mark__bar {
+    height: 7%;
+  }
+
+  :hover > .gg-mark .gg-mark__bar[data-corner="top-left"] {
+    top: 20%;
+    left: -5%;
+  }
+
+  :hover > .gg-mark .gg-mark__bar[data-corner="top-right"] {
+    top: 20%;
+    right: -5%;
+  }
+
+  :hover > .gg-mark .gg-mark__bar[data-corner="bottom-left"] {
+    bottom: 20%;
+    left: -5%;
+  }
+
+  :hover > .gg-mark .gg-mark__bar[data-corner="bottom-right"] {
+    right: -5%;
+    bottom: 20%;
+  }
+
+  :active > .gg-mark .gg-mark__bar {
+    height: 6%;
+  }
+
+  :active > .gg-mark .gg-mark__bar[data-corner="top-left"] {
+    top: 33%;
+    left: 8%;
+  }
+
+  :active > .gg-mark .gg-mark__bar[data-corner="top-right"] {
+    top: 33%;
+    right: 8%;
+  }
+
+  :active > .gg-mark .gg-mark__bar[data-corner="bottom-left"] {
+    bottom: 33%;
+    left: 8%;
+  }
+
+  :active > .gg-mark .gg-mark__bar[data-corner="bottom-right"] {
+    right: 8%;
+    bottom: 33%;
+  }
+}

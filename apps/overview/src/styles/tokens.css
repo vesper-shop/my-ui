@@ -1,0 +1,93 @@
+@import "./palette.css";
+
+:root {
+  color-scheme: light;
+
+  --color-background: var(--palette-light-silver);
+  --color-muted: var(--palette-light-cloud);
+  --color-foreground: var(--palette-light-ink);
+  --color-muted-foreground: var(--palette-light-fog);
+  --color-border: var(--palette-light-edge);
+  --color-border-strong: var(--palette-light-outline);
+  --color-accent: var(--palette-blue-light);
+  --color-secondary: var(--palette-amber-light);
+  --color-accent-foreground: var(--palette-light-silver);
+  --color-note: var(--palette-note-light);
+  --color-paper-grid: color-mix(in srgb, var(--palette-light-outline) 38%, transparent);
+  --color-lamp: transparent;
+  --color-highlight: color-mix(in srgb, var(--palette-amber-dark) 52%, transparent);
+  --color-tape-blue: color-mix(in srgb, var(--palette-blue-dark) 62%, transparent);
+  --color-tape-amber: color-mix(in srgb, var(--palette-amber-dark) 66%, transparent);
+  --color-tape-matcha: color-mix(in srgb, var(--palette-matcha-dark) 66%, transparent);
+
+  --font-sans: "Geist Variable", system-ui, "PingFang SC", "Noto Sans SC", sans-serif;
+  --font-serif: "Lora Variable", "Songti SC", "Noto Serif SC", Georgia, serif;
+  --font-mono: "Geist Mono Variable", "JetBrains Mono", Consolas, monospace;
+  --font-hand: "Caveat", "Kaiti SC", cursive;
+
+  --text-display: 4.5rem;
+  --text-section: 1.875rem;
+  --text-heading: 1.25rem;
+  --text-body: 0.875rem;
+  --text-reading: 1.125rem;
+  --text-small: 0.8125rem;
+  --text-caption: 0.75rem;
+  --text-hand: 1.625rem;
+  --leading-display: 1.15;
+  --leading-heading: 1.35;
+  --leading-body: 1.6;
+  --leading-reading: 1.8;
+  --leading-small: 1.5;
+  --weight-regular: 400;
+  --weight-medium: 500;
+
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --radius-lg: 7px;
+
+  --shadow-xs: 0 1px 2px 0 color-mix(in srgb, #000 4%, transparent);
+  --shadow-paper:
+    0 1px 1px 0 color-mix(in srgb, #000 6%, transparent),
+    0 8px 18px -8px color-mix(in srgb, #000 18%, transparent);
+
+  --duration-fast: 100ms;
+  --duration-base: 180ms;
+}
+
+:root.dark {
+  color-scheme: dark;
+
+  --color-background: var(--palette-dark-0);
+  --color-muted: var(--palette-dark-1);
+  --color-foreground: var(--palette-dark-text);
+  --color-muted-foreground: var(--palette-dark-text-dim);
+  --color-border: var(--palette-dark-2);
+  --color-border-strong: var(--palette-dark-3);
+  --color-accent: var(--palette-blue-dark);
+  --color-secondary: var(--palette-amber-dark);
+  --color-accent-foreground: var(--palette-dark-0);
+  --color-note: var(--palette-note-dark);
+  --color-paper-grid: color-mix(in srgb, var(--palette-dark-2) 70%, transparent);
+  --color-lamp: color-mix(in srgb, var(--palette-amber-dark) 10%, transparent);
+  --color-highlight: color-mix(in srgb, var(--palette-amber-dark) 34%, transparent);
+  --color-tape-blue: color-mix(in srgb, var(--palette-blue-light) 55%, transparent);
+  --color-tape-amber: color-mix(in srgb, var(--palette-amber-light) 60%, transparent);
+  --color-tape-matcha: color-mix(in srgb, var(--palette-matcha-light) 60%, transparent);
+}
+
+@media (max-width: 720px) {
+  :root {
+    --text-display: 2.75rem;
+    --text-section: 1.625rem;
+    --text-heading: 1.125rem;
+    --text-reading: 1.0625rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+  }
+}

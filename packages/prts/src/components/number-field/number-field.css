@@ -1,0 +1,84 @@
+@layer components {
+  .pr-number-field {
+    display: inline-flex;
+  }
+
+  .pr-number-field__input {
+    min-width: 0;
+    background-color: transparent;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    color: inherit;
+    outline: none;
+  }
+
+  .pr-number-field__increment,
+  .pr-number-field__decrement {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+  }
+
+  .pr-number-field__increment:focus-visible,
+  .pr-number-field__decrement:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  .pr-number-field__increment[data-disabled],
+  .pr-number-field__decrement[data-disabled] {
+    color: var(--color-disabled-foreground);
+    cursor: default;
+  }
+
+  .pr-number-field__group {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-foreground);
+  }
+
+  .pr-number-field__input {
+    width: 64px;
+    font-family: var(--font-display);
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  .pr-number-field__input:focus-visible {
+    color: var(--color-accent);
+  }
+
+  .pr-number-field__increment,
+  .pr-number-field__decrement {
+    width: 64px;
+    height: 24px;
+    background-color: var(--color-steel);
+    box-shadow: var(--shadow-control);
+    color: var(--color-white);
+    transition-property: filter, translate, box-shadow;
+    transition-duration: var(--duration-fast);
+  }
+
+  .pr-number-field__increment:hover:not([data-disabled]),
+  .pr-number-field__decrement:hover:not([data-disabled]) {
+    filter: brightness(1.12);
+  }
+
+  .pr-number-field__increment:active:not([data-disabled]),
+  .pr-number-field__decrement:active:not([data-disabled]) {
+    box-shadow: none;
+    translate: 0 2px;
+  }
+
+  .pr-number-field__increment[data-disabled],
+  .pr-number-field__decrement[data-disabled] {
+    background-color: var(--color-disabled-foreground);
+    box-shadow: none;
+    color: var(--color-divider);
+  }
+}

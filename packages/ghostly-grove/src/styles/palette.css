@@ -1,0 +1,65 @@
+:root {
+  --palette-grove-page: #141619;
+  --palette-grove-card: #1b1c23;
+  --palette-grove-panel: #23242d;
+  --palette-grove-tooltip: #111617;
+  --palette-grove-line: #2b3038;
+  --palette-grove-frame: #3b3e44;
+  --palette-grove-frame-light: #a6b0b5;
+  --palette-grove-comment-name: #637279;
+  --palette-grove-muted: #80878b;
+  --palette-grove-text: #879c9e;
+  --palette-grove-comment: #8ea1a6;
+  --palette-grove-value: #c3e8e7;
+  --palette-grove-ink: #d7e8f2;
+  --palette-grove-white: #f4fbfc;
+  --palette-grove-avatar: #c8d2d6;
+
+  --palette-grove-teal: #4cb1b8;
+  --palette-grove-teal-deep: #216985;
+  --palette-grove-teal-dark: #245c79;
+  --palette-grove-link: #5ad7d6;
+  --palette-grove-glow: #6efff8;
+  --palette-grove-plan: #27e2de;
+  --palette-grove-gold: #e5c67b;
+  --palette-grove-orange: #e8913a;
+  --palette-grove-rule: #4bb39c;
+  --palette-grove-band: #294953;
+  --palette-grove-band-deep: #1d3a42;
+
+  --palette-grove-star: rgb(255 255 255 / 0.08);
+  --palette-grove-overlay: rgb(8 18 24 / 0.45);
+  --palette-grove-stage-glow: rgb(46 140 160 / 0.5);
+  --palette-grove-stage-mist: rgb(24 70 86 / 0.55);
+  --palette-grove-stage-base: #10141a;
+
+  --palette-mist-page: #eef3f5;
+  --palette-mist-card: #ffffff;
+  --palette-mist-panel: #f6f9fa;
+  --palette-mist-field: #e9eef0;
+  --palette-mist-tooltip: #f2fbfb;
+  --palette-mist-line: #d9e1e4;
+  --palette-mist-frame: #c3ccd0;
+  --palette-mist-frame-light: #6f7c82;
+  --palette-mist-comment-name: #7c8a90;
+  --palette-mist-muted: #6c767a;
+  --palette-mist-text: #4f6266;
+  --palette-mist-comment: #43575c;
+  --palette-mist-value: #1f4c50;
+  --palette-mist-ink: #16303d;
+  --palette-mist-teal: #12838f;
+  --palette-mist-link: #0e8c8c;
+  --palette-mist-cyan: #0b9a93;
+  --palette-mist-gold: #a77d1c;
+  --palette-mist-band: #cfe5e8;
+  --palette-mist-band-deep: #b5d5da;
+  --palette-mist-overlay: rgb(220 235 240 / 0.5);
+  --palette-mist-stage-glow: rgb(120 200 215 / 0.45);
+  --palette-mist-stage-mist: rgb(190 225 232 / 0.6);
+  --palette-mist-stage-base: #e6eff2;
+
+  --palette-signal-red: #e25c5c;
+  --palette-signal-red-deep: #b23434;
+  --palette-signal-green: #7ed6a5;
+  --palette-signal-green-deep: #2f8a5a;
+}

@@ -1,0 +1,44 @@
+@layer components {
+  .ik-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .ik-progress__track {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 14px;
+    align-items: center;
+    overflow: hidden;
+    border-radius: var(--radius-full);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-hairline);
+  }
+
+  .ik-progress__indicator {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: var(--radius-full);
+    background-image: linear-gradient(90deg, var(--color-progress-from), var(--color-progress-to));
+    transition: width var(--duration-slow);
+  }
+
+  .ik-progress__value {
+    position: relative;
+    padding-left: 6px;
+    font-size: 11px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+  }
+
+  .ik-progress__label {
+    font-size: 10px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    color: var(--color-subtle-foreground);
+  }
+}

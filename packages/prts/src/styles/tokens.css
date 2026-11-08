@@ -1,0 +1,94 @@
+@import "./palette.css";
+
+@theme static {
+  --color-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --color-transparent: transparent;
+
+  --color-background: light-dark(var(--palette-light-page), var(--palette-steel-deep));
+  --color-surface: light-dark(var(--palette-light-panel), var(--palette-dark-panel));
+  --color-surface-sunken: var(--palette-steel-deep);
+  --color-surface-raised: light-dark(var(--palette-light-white), var(--palette-dark-panel));
+  --color-foreground: light-dark(var(--palette-light-ink), var(--palette-dark-ink));
+  --color-muted-foreground: light-dark(var(--palette-light-muted), var(--palette-dark-muted));
+  --color-subtle-foreground: light-dark(var(--palette-light-disabled), var(--palette-steel-top));
+  --color-disabled-foreground: var(--color-subtle-foreground);
+  --color-border: light-dark(var(--palette-light-line), var(--palette-steel-light));
+  --color-divider: light-dark(var(--palette-light-divider), var(--palette-dark-divider));
+  --color-accent: var(--palette-blue);
+  --color-accent-foreground: var(--color-white);
+  --color-danger: var(--palette-red);
+  --color-success: var(--palette-green);
+  --color-warning: var(--palette-yellow);
+  --color-focus: var(--color-accent);
+  --color-overlay: light-dark(var(--palette-overlay-light), var(--palette-overlay));
+
+  --color-veil: light-dark(var(--palette-light-veil), var(--palette-dark-veil));
+  --color-steel: var(--palette-steel);
+  --color-rule: light-dark(var(--palette-steel), var(--palette-dark-muted));
+  --color-steel-light: var(--palette-steel-light);
+  --color-steel-top: var(--palette-steel-top);
+  --color-header-from: var(--palette-header-from);
+  --color-header-to: var(--palette-header-to);
+  --color-accent-deep: var(--palette-blue-deep);
+  --color-danger-light: var(--palette-red-light);
+  --color-white: var(--palette-light-white);
+  --color-black: var(--palette-black);
+  --color-night: var(--palette-night);
+  --color-hatch: var(--palette-hatch);
+
+  --font-sans:
+    "Noto Sans SC", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-display: "Oswald", var(--font-sans);
+  --font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+
+  --radius-sm: 0;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.2);
+  --shadow-md: 0 3px 8px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 12px 30px rgb(0 0 0 / 0.4);
+  --shadow-control: 0 2px 0 rgb(0 0 0 / 0.35);
+}
+
+:root {
+  color-scheme: light;
+
+  --pattern-hatch: repeating-linear-gradient(
+    -45deg,
+    var(--color-hatch) 0,
+    var(--color-hatch) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  --pattern-halftone: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-white) 32%, transparent) 1.2px,
+    transparent 1.6px
+  );
+
+  --size-control: 34px;
+
+  --duration-fast: 100ms;
+  --duration-base: 180ms;
+  --duration-slow: 300ms;
+}
+
+:root.light {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

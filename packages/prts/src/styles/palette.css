@@ -1,0 +1,37 @@
+:root {
+  --palette-light-page: #e6e6e8;
+  --palette-light-veil: rgb(240 240 242 / 0.86);
+  --palette-light-panel: #f4f4f5;
+  --palette-light-white: #ffffff;
+  --palette-light-line: #c9c9cc;
+  --palette-light-divider: #d8d8db;
+  --palette-light-disabled: #a6a6a8;
+  --palette-light-muted: #757777;
+  --palette-light-ink: #262b2c;
+
+  --palette-dark-veil: rgb(28 29 31 / 0.86);
+  --palette-dark-panel: #2a2b2e;
+  --palette-dark-divider: #3a3b3e;
+  --palette-dark-muted: #a3a5a8;
+  --palette-dark-ink: #ececee;
+
+  --palette-steel: #313131;
+  --palette-steel-light: #4b4c50;
+  --palette-steel-top: #6d6d6f;
+  --palette-steel-deep: #1d1d1f;
+  --palette-black: #040404;
+  --palette-night: #13121c;
+  --palette-header-from: #2f3d48;
+  --palette-header-to: #3a3d42;
+
+  --palette-blue: #18a3dc;
+  --palette-blue-deep: #0e6d92;
+  --palette-red: #8b1020;
+  --palette-red-light: #b4202f;
+  --palette-yellow: #ffd200;
+  --palette-green: #8ec31f;
+
+  --palette-overlay: rgb(20 20 22 / 0.55);
+  --palette-overlay-light: rgb(230 230 232 / 0.5);
+  --palette-hatch: rgb(0 0 0 / 0.05);
+}

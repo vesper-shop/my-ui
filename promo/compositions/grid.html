@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+  <body>
+    <div
+      id="grid"
+      data-composition-id="grid"
+      data-start="0"
+      data-duration="8"
+      data-width="1920"
+      data-height="1080"
+    >
+      <style>
+        #grid .headline {
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          text-align: center;
+          font-size: 64px;
+          font-weight: 900;
+        }
+      </style>
+      <h2 class="headline">绳网 · 罗浮杂俎 · 狸狸通信 · 普瑞赛斯</h2>
+      <script>
+        window.__timelines = window.__timelines || {};
+        const BEAT = 0.5;
+        const tl = gsap.timeline({ paused: true });
+        tl.from(
+          "#grid .headline",
+          { y: -60, opacity: 0, duration: 0.5, ease: "back.out(1.8)" },
+          0.1,
+        );
+        tl.to("#grid .headline", { opacity: 0, duration: 0.3 }, 7.6);
+        window.__timelines["grid"] = tl;
+      </script>
+    </div>
+  </body>
+</html>

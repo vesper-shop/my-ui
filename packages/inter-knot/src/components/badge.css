@@ -1,0 +1,33 @@
+@layer components {
+  .ik-badge {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border-radius: var(--radius-full);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .ik-badge[data-variant="default"] {
+    height: 18px;
+    padding-inline: 8px;
+    background-color: var(--color-badge);
+    font-size: 13px;
+    color: var(--color-accent-foreground);
+  }
+
+  .ik-badge[data-variant="secondary"] {
+    height: 22px;
+    padding-inline: 10px;
+    background-image: linear-gradient(to bottom, var(--color-tag-from), var(--color-tag-to));
+    box-shadow:
+      inset 0 0 0 1px var(--color-tag-from),
+      var(--shadow-hairline);
+    font-size: 14px;
+    color: var(--color-tag-foreground);
+  }
+}

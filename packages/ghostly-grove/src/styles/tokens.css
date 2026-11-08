@@ -1,0 +1,98 @@
+@import "./palette.css";
+
+@theme static {
+  --color-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --color-transparent: transparent;
+
+  --color-background: light-dark(var(--palette-mist-page), var(--palette-grove-page));
+  --color-surface: light-dark(var(--palette-mist-card), var(--palette-grove-card));
+  --color-surface-sunken: light-dark(var(--palette-mist-panel), var(--palette-grove-panel));
+  --color-surface-raised: light-dark(var(--palette-mist-field), var(--palette-grove-page));
+  --color-foreground: light-dark(var(--palette-mist-ink), var(--palette-grove-ink));
+  --color-muted-foreground: light-dark(var(--palette-mist-text), var(--palette-grove-text));
+  --color-subtle-foreground: light-dark(var(--palette-mist-muted), var(--palette-grove-muted));
+  --color-disabled-foreground: light-dark(
+    var(--palette-mist-comment-name),
+    var(--palette-grove-comment-name)
+  );
+  --color-border: light-dark(var(--palette-mist-frame), var(--palette-grove-frame));
+  --color-divider: light-dark(var(--palette-mist-line), var(--palette-grove-line));
+  --color-accent: light-dark(var(--palette-mist-teal), var(--palette-grove-teal));
+  --color-accent-foreground: var(--palette-grove-white);
+  --color-danger: light-dark(var(--palette-signal-red-deep), var(--palette-signal-red));
+  --color-success: light-dark(var(--palette-signal-green-deep), var(--palette-signal-green));
+  --color-warning: var(--palette-grove-orange);
+  --color-focus: var(--color-glow);
+  --color-overlay: light-dark(var(--palette-mist-overlay), var(--palette-grove-overlay));
+
+  --color-title: var(--color-glow);
+  --color-link: light-dark(var(--palette-mist-link), var(--palette-grove-link));
+  --color-glow: light-dark(var(--palette-mist-cyan), var(--palette-grove-glow));
+  --color-value: light-dark(var(--palette-mist-value), var(--palette-grove-value));
+  --color-label: light-dark(var(--palette-mist-gold), var(--palette-grove-gold));
+  --color-comment: light-dark(var(--palette-mist-comment), var(--palette-grove-comment));
+  --color-border-hover: light-dark(
+    var(--palette-mist-frame-light),
+    var(--palette-grove-frame-light)
+  );
+  --color-tooltip: light-dark(var(--palette-mist-tooltip), var(--palette-grove-tooltip));
+  --color-nav-from: var(--palette-grove-teal-deep);
+  --color-nav-to: var(--palette-grove-teal-dark);
+  --color-plan: var(--palette-grove-plan);
+  --color-band: light-dark(var(--palette-mist-band), var(--palette-grove-band));
+  --color-band-deep: light-dark(var(--palette-mist-band-deep), var(--palette-grove-band-deep));
+  --color-rule: var(--palette-grove-rule);
+  --color-star: var(--palette-grove-star);
+  --color-avatar: var(--palette-grove-avatar);
+  --color-stage-glow: light-dark(var(--palette-mist-stage-glow), var(--palette-grove-stage-glow));
+  --color-stage-mist: light-dark(var(--palette-mist-stage-mist), var(--palette-grove-stage-mist));
+  --color-stage-base: light-dark(var(--palette-mist-stage-base), var(--palette-grove-stage-base));
+
+  --font-sans:
+    "Noto Sans SC", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+  --font-numeric: "Barlow Semi Condensed", var(--font-sans);
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-md: 0 6px 16px -4px rgb(0 0 0 / 0.45);
+  --shadow-lg: 0 18px 40px -8px rgb(0 0 0 / 0.55);
+  --shadow-glow: 0 0 12px rgb(110 255 248 / 0.35);
+}
+
+:root {
+  color-scheme: dark;
+
+  --pattern-hex: url("data:image/svg+xml,<svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='69.283' height='40' patternTransform='scale(2) rotate(30)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 0%, 100%, 0)'/><path d='M46.189-20L57.736 0M46.189 20l11.547 20m-46.189 0l11.547 20M11.547 0l11.547 20m40.415 30H40.415M28.868 30H5.774m23.094-40H5.774m57.735 20H40.415m0 20L28.868 50m11.547-60L28.868 10m46.188 0L63.509 30M5.774 10L-5.773 30m75.056 10H46.189L34.64 20 46.19 0h23.094C73.13 6.667 76.98 13.333 80.83 20zM57.736 60H34.64L23.094 40l11.547-20h23.095c3.848 6.667 7.698 13.333 11.547 20L57.736 60zm0-40H34.64L23.094 0l11.547-20h23.095L69.283 0c-3.87 6.7-8.118 14.06-11.547 20zM34.64 60H11.547L0 40l11.547-20h23.094L46.19 40 34.64 60zm0-40H11.547L0 0l11.547-20h23.094L46.19 0 34.64 20zM23.094 40H0l-5.773-10-5.774-10L0 0h23.094l11.547 20-11.547 20z' stroke-width='1' stroke='hsla(197, 40%, 14%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' fill='url(%23a)'/></svg>");
+
+  --size-nav-width: 300px;
+  --size-nav-height: 57px;
+  --size-frame: 2px;
+
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 400ms;
+}
+
+:root.light {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

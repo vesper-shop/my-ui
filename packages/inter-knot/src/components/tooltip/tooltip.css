@@ -1,0 +1,32 @@
+@layer components {
+  .ik-tooltip__positioner {
+    z-index: 20;
+  }
+
+  .ik-tooltip__popup {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding-inline: 16px;
+    border: var(--size-frame) solid var(--color-border);
+    border-radius: var(--radius-full);
+    background-color: var(--color-chrome);
+    @apply bg-dots;
+    box-shadow: var(--shadow-hairline);
+    font-size: 13px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--color-foreground);
+    transition: opacity var(--duration-fast);
+  }
+
+  .ik-tooltip__popup[data-starting-style],
+  .ik-tooltip__popup[data-ending-style] {
+    opacity: 0;
+  }
+
+  .ik-tooltip__popup[data-instant] {
+    transition-duration: 0ms;
+  }
+}
