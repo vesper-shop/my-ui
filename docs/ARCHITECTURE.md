@@ -66,14 +66,14 @@ starts the demo. Copying any existing UI and changing it is the easiest way.
 
 ### Local addresses
 
-| App | Address | Started alone with |
-| --- | --- | --- | --- | --- | --- |
-| Overview site | http://localhost:5173/ | - |
-| Storybook | http://localhost:6006/ | `pnpm storybook` |
-| inter-knot | http://localhost:5181/ | `pnpm demo:inter-knot` |
-| ghostly-grove | http://localhost:5182/ | `pnpm demo:ghostly-grove` |
+| App            | Address                | Started alone with         |
+| -------------- | ---------------------- | -------------------------- |
+| Overview site  | http://localhost:5173/ | -                          |
+| Storybook      | http://localhost:6006/ | `pnpm storybook`           |
+| inter-knot     | http://localhost:5181/ | `pnpm demo:inter-knot`     |
+| ghostly-grove  | http://localhost:5182/ | `pnpm demo:ghostly-grove`  |
 | furbobo-gossip | http://localhost:5183/ | `pnpm demo:furbobo-gossip` |
-| prts | http://localhost:5184/ | `pnpm demo:prts` |
+| prts           | http://localhost:5184/ | `pnpm demo:prts`           |
 
 ### Using a UI in an app
 
@@ -148,10 +148,10 @@ names.
   UI's own mark when given no children.
 - Components never select each other's markup. One sizes another through a variable:
 
-| Variable | Read by | Default |
-| --- | --- | --- | --- | --- | --- |
-| `--avatar-size` | `Avatar.Root` | `40px` |
-| `--avatar-ring` | `Avatar.Root` | the UI's ring, if any |
+| Variable         | Read by        | Default               |
+| ---------------- | -------------- | --------------------- |
+| `--avatar-size`  | `Avatar.Root`  | `40px`                |
+| `--avatar-ring`  | `Avatar.Root`  | the UI's ring, if any |
 | `--dialog-width` | `Dialog.Popup` | the UI's window width |
 
 ### Tokens

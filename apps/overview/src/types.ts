@@ -28,18 +28,13 @@ export interface Copy {
   description: string;
   openStorybook: string;
   readArchitecture: string;
-  behaviour: string;
-  looks: string;
-  uiCount: (count: number) => string;
-  stack: string;
+  demos: string;
   uisStamp: string;
   uisHeading: string;
-  uisDescription: string;
   demo: string;
   designNotes: string;
   docsStamp: string;
   docsHeading: string;
-  docsDescription: string;
   groups: Record<DocGroup, string>;
   brandNote: string;
   overview: string;
@@ -51,7 +46,9 @@ export interface Copy {
   otherLocaleLabel: string;
   notFound: string;
   backToOverview: string;
-  builtOn: string;
+  links: string;
+  source: string;
+  designSystem: string;
 }
 
 export interface Route {

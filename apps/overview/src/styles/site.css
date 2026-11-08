@@ -308,19 +308,20 @@ h3 {
   margin-top: 32px;
 }
 
-.spec dl {
-  display: grid;
-  gap: 14px;
-  margin: 0;
-}
-
-.spec dt {
+.spec__label {
   font-size: var(--text-caption);
   color: var(--color-muted-foreground);
 }
 
-.spec dd {
-  margin: 2px 0 0;
+.spec ul {
+  display: grid;
+  gap: 6px;
+  padding: 0;
+  margin: 10px 0 0;
+  list-style: none;
+}
+
+.spec a {
   font: var(--text-hand) / 1.1 var(--font-hand);
 }
 
@@ -501,9 +502,24 @@ h3 {
   justify-content: space-between;
   gap: 2rem;
   padding-top: 24px;
+  margin-top: 32px;
   border-top: 1px solid var(--color-border);
   font-size: var(--text-caption);
   color: var(--color-muted-foreground);
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer__links a {
+  color: inherit;
+}
+
+.footer__links a:hover {
+  color: var(--color-foreground);
 }
 
 @media (max-width: 720px) {

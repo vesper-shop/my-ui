@@ -41,7 +41,7 @@ test("unknown paths show the not-found page", async ({ page }) => {
 test("Chinese pages render the translated documents under /zh/", async ({ page }) => {
   await page.goto("/zh/");
   await expect(page.locator("html")).toHaveAttribute("lang", "zh-CN");
-  await expect(page.getByRole("heading", { level: 2, name: "四种视觉语言" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "四套 UI" })).toBeVisible();
   await page.getByRole("link", { name: "阅读架构文档" }).click();
   await expect(page).toHaveURL(/\/zh\/docs\/architecture$/);
   await expect(page.getByRole("heading", { level: 1, name: "架构" })).toBeVisible();

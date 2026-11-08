@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { copy, docs, localeHref, parseRoute } from "@/data";
+import { copy, docs, links, localeHref, parseRoute } from "@/data";
 import { DocPage } from "@/doc-page";
 import { Home } from "@/home";
 import { SiteHeader } from "@/site-header";
@@ -32,7 +32,12 @@ export function App() {
       )}
       <footer className="footer">
         <span>my-ui</span>
-        <span>{text.builtOn}</span>
+        <nav className="footer__links" aria-label={text.links}>
+          <a href={links.source}>{text.source}</a>
+          <a href={links.github}>GitHub</a>
+          <a href={links.x}>X</a>
+          <a href={links.designSystem}>{text.designSystem}</a>
+        </nav>
       </footer>
     </div>
   );

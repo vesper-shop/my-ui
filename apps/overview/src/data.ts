@@ -6,6 +6,13 @@ const sources = import.meta.glob<string>("../../../docs/**/*.md", {
   eager: true,
 });
 
+export const links = {
+  source: "https://github.com/vesper-shop/my-ui",
+  github: "https://github.com/Pleasurecruise",
+  x: "https://x.com/yiming9876",
+  designSystem: "https://design.you-find.me",
+};
+
 export const storybookUrl = import.meta.env.DEV ? "http://localhost:6006" : "/storybook";
 
 export function demoUrl(ui: UiEntry) {
@@ -53,26 +60,21 @@ export const uis: UiEntry[] = [
 
 export const copy: Record<Locale, Copy> = {
   en: {
-    tagline: "React UIs in distinct visual styles",
-    taglineRest: ", built on Base UI.",
+    tagline: "Four sets of React components",
+    taglineRest: ", each with its own look.",
     description:
-      "Every UI shares Base UI's behaviour, component names and token names; markup, decoration and motion belong to the UI. Switching UIs means changing an import.",
+      "Each set has a demo page, and Storybook shows every component on its own. They aren't on npm yet.",
     openStorybook: "Open Storybook",
     readArchitecture: "Read the architecture",
-    behaviour: "Behaviour",
-    looks: "Looks",
-    uiCount: (count) => `${count} UIs`,
-    stack: "Stack",
+    demos: "Demos",
     uisStamp: "01 / UIs",
-    uisHeading: "Four visual languages",
-    uisDescription: "Each preview is that UI's own Storybook, so its tokens and fonts stay intact.",
+    uisHeading: "The four UIs",
     demo: "Demo",
     designNotes: "Design notes",
     docsStamp: "02 / Docs",
     docsHeading: "Documents",
-    docsDescription: "The architecture, the style guide, deployment and each UI's design notes.",
     groups: { Guide: "Guide", UIs: "UIs" },
-    brandNote: "Base UI, four looks",
+    brandNote: "Four React UIs",
     overview: "Overview",
     docs: "Docs",
     pages: "Pages",
@@ -82,29 +84,25 @@ export const copy: Record<Locale, Copy> = {
     otherLocaleLabel: "阅读中文版",
     notFound: "Page not found",
     backToOverview: "Back to the overview",
-    builtOn: "Built on Base UI",
+    links: "Links",
+    source: "Source",
+    designSystem: "Design system",
   },
   zh: {
-    tagline: "视觉风格各异的 React UI",
-    taglineRest: "，建立在 Base UI 之上。",
-    description:
-      "每套 UI 共用 Base UI 的行为、组件名和 token 名；结构、装饰和动效属于 UI 自己。切换 UI 只需换一行 import。",
+    tagline: "四套 React 组件",
+    taglineRest: "，各有各的样子。",
+    description: "每套都有一个 demo 页面，Storybook 里能单独看每个组件。还没有发布到 npm。",
     openStorybook: "打开 Storybook",
     readArchitecture: "阅读架构文档",
-    behaviour: "行为",
-    looks: "外观",
-    uiCount: (count) => `${count} 套 UI`,
-    stack: "技术栈",
+    demos: "Demo",
     uisStamp: "01 / UI",
-    uisHeading: "四种视觉语言",
-    uisDescription: "每个预览都是该 UI 自己的 Storybook，token 和字体保持原样。",
+    uisHeading: "四套 UI",
     demo: "Demo",
     designNotes: "设计说明",
     docsStamp: "02 / 文档",
     docsHeading: "文档",
-    docsDescription: "架构、代码规范、部署，以及每套 UI 的设计说明。",
     groups: { Guide: "指南", UIs: "UI" },
-    brandNote: "Base UI，四种外观",
+    brandNote: "四套 React UI",
     overview: "概览",
     docs: "文档",
     pages: "页面",
@@ -114,7 +112,9 @@ export const copy: Record<Locale, Copy> = {
     otherLocaleLabel: "Read in English",
     notFound: "页面不存在",
     backToOverview: "返回概览",
-    builtOn: "基于 Base UI",
+    links: "链接",
+    source: "源码",
+    designSystem: "设计系统",
   },
 };
 

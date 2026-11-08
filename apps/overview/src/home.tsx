@@ -33,20 +33,14 @@ export function Home({ locale }: HomeProps) {
         </div>
         <div className="note spec">
           <span className="tape" />
-          <dl>
-            <div>
-              <dt>{text.behaviour}</dt>
-              <dd>Base UI</dd>
-            </div>
-            <div>
-              <dt>{text.looks}</dt>
-              <dd>{text.uiCount(uis.length)}</dd>
-            </div>
-            <div>
-              <dt>{text.stack}</dt>
-              <dd>React · Tailwind CSS</dd>
-            </div>
-          </dl>
+          <p className="spec__label">{text.demos}</p>
+          <ul>
+            {uis.map((ui) => (
+              <li key={ui.id}>
+                <a href={demoUrl(ui)}>{ui.name[locale]}</a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -54,7 +48,6 @@ export function Home({ locale }: HomeProps) {
         <header className="section__heading">
           <span className="stamp">{text.uisStamp}</span>
           <h2 id="uis-heading">{text.uisHeading}</h2>
-          <p>{text.uisDescription}</p>
         </header>
         <div className="ui-list">
           {uis.map((ui) => (
@@ -88,7 +81,6 @@ export function Home({ locale }: HomeProps) {
         <header className="section__heading">
           <span className="stamp">{text.docsStamp}</span>
           <h2 id="docs-heading">{text.docsHeading}</h2>
-          <p>{text.docsDescription}</p>
         </header>
         <ul className="doc-list">
           {docs[locale].map((doc) => (

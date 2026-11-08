@@ -56,14 +56,14 @@ pnpm dev
 
 ### 本地地址
 
-| App | 地址 | 单独启动 |
-| --- | --- | --- | --- | --- | --- |
-| 介绍站 | http://localhost:5173/ | - |
-| Storybook | http://localhost:6006/ | `pnpm storybook` |
-| inter-knot | http://localhost:5181/ | `pnpm demo:inter-knot` |
-| ghostly-grove | http://localhost:5182/ | `pnpm demo:ghostly-grove` |
+| App            | 地址                   | 单独启动                   |
+| -------------- | ---------------------- | -------------------------- |
+| 介绍站         | http://localhost:5173/ | -                          |
+| Storybook      | http://localhost:6006/ | `pnpm storybook`           |
+| inter-knot     | http://localhost:5181/ | `pnpm demo:inter-knot`     |
+| ghostly-grove  | http://localhost:5182/ | `pnpm demo:ghostly-grove`  |
 | furbobo-gossip | http://localhost:5183/ | `pnpm demo:furbobo-gossip` |
-| prts | http://localhost:5184/ | `pnpm demo:prts` |
+| prts           | http://localhost:5184/ | `pnpm demo:prts`           |
 
 ### 在 app 里引用
 
@@ -135,11 +135,11 @@ tests/
   绘制本 UI 自己的标记。
 - 组件之间不选择彼此的标记。一个组件通过变量控制另一个组件的尺寸：
 
-| 变量 | 读取方 | 默认值 |
-| --- | --- | --- | --- | --- | --- |
-| `--avatar-size` | `Avatar.Root` | `40px` |
-| `--avatar-ring` | `Avatar.Root` | 本 UI 的描边（如有） |
-| `--dialog-width` | `Dialog.Popup` | 本 UI 的窗口宽度 |
+| 变量             | 读取方         | 默认值               |
+| ---------------- | -------------- | -------------------- |
+| `--avatar-size`  | `Avatar.Root`  | `40px`               |
+| `--avatar-ring`  | `Avatar.Root`  | 本 UI 的描边（如有） |
+| `--dialog-width` | `Dialog.Popup` | 本 UI 的窗口宽度     |
 
 ### Token
 
