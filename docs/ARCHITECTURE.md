@@ -116,6 +116,10 @@ active one. A story's UI is the first segment of its title (`prts/Button`).
 A new UI adds its package, its stories, a demo, and a `demo:<ui>` script in the root
 `package.json`.
 
+Every demo also works on a phone. Below 768px a demo switches to a phone layout with `max-md:`
+utilities, and any phone rules in `app.css` sit in one `@media (width < 48rem)` block. Demos drawn
+on a scaled stage give it a narrower design width on phones, so the stage is scaled less.
+
 ### Components
 
 Each UI exports only the components its reference recording shows. A component two UIs share has
@@ -180,7 +184,7 @@ Every UI defines:
 ### Dependencies
 
 A UI depends only on Base UI, React and its own files; UIs never import each other. Shared tooling
-is pinned in the root `package.json`. `vite` is aliased to `@voidzero-dev/vite-plus-core`; keep its
-version equal to `vite-plus`.
+is pinned in the root `package.json`. `vite` is aliased to `@voidzero-dev/vite-plus-core`; keep it at
+the version that `vite-plus` itself depends on.
 
 </details>

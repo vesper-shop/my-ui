@@ -15,11 +15,11 @@ export function ChatDialog({ post, isLiked, onToggleLike }: ChatDialogProps) {
     <Dialog.Popup
       ref={popupRef}
       initialFocus={popupRef}
-      className="[--dialog-height:552px] [--dialog-width:1016px]"
+      className="[--dialog-height:552px] [--dialog-width:1016px] max-md:dialog-fit"
     >
-      <div className="flex min-h-0 flex-1">
-        <div className="flex w-[556px] shrink-0 flex-col gap-3 border-r border-border bg-surface/60 px-12 pt-14">
-          <div className="text-center">
+      <div className="flex min-h-0 flex-1 max-md:flex-col">
+        <div className="flex w-[556px] shrink-0 flex-col gap-3 border-r border-border bg-surface/60 px-12 pt-14 max-md:w-full max-md:border-r-0 max-md:border-b max-md:px-6 max-md:pt-6 max-md:pb-4">
+          <div className="text-center max-md:px-8">
             <Dialog.Title>{post.title}</Dialog.Title>
           </div>
           <div className="flex items-center gap-2 text-body text-muted-foreground">
@@ -39,8 +39,8 @@ export function ChatDialog({ post, isLiked, onToggleLike }: ChatDialogProps) {
             )}
           </div>
         </div>
-        <div className="flex min-w-0 flex-1 flex-col">
-          <Dialog.Header className="justify-end">
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+          <Dialog.Header className="justify-end max-md:absolute max-md:top-0 max-md:right-0 max-md:z-10">
             <Dialog.Close />
           </Dialog.Header>
           <Dialog.Body className="gap-4 pr-8">

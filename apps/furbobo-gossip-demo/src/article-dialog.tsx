@@ -36,9 +36,9 @@ export function ArticleDialog({ volume, isLiked, onToggleLike }: ArticleDialogPr
     <Dialog.Popup
       ref={popupRef}
       initialFocus={popupRef}
-      className="bg-sidebar flex-row [--dialog-height:610px] [--dialog-width:1040px]"
+      className="bg-sidebar flex-row [--dialog-height:610px] [--dialog-width:1040px] max-md:dialog-fit"
     >
-      <div className="relative w-[300px] shrink-0">
+      <div className="relative w-[300px] shrink-0 max-md:hidden">
         <Tabs.Root
           orientation="vertical"
           value={activeId}
@@ -62,7 +62,7 @@ export function ArticleDialog({ volume, isLiked, onToggleLike }: ArticleDialogPr
           <span className="logo__char">卦</span>
         </span>
       </div>
-      <div className="flex min-w-0 flex-1 flex-col rounded-l-sheet bg-surface-sunken bg-dots">
+      <div className="flex min-w-0 flex-1 flex-col rounded-l-sheet bg-surface-sunken bg-dots max-md:rounded-none">
         <Dialog.Header className="border-b border-border pt-3 pb-3">
           <span className="issue-mini">{String(volume.number).padStart(2, "0")}</span>
           <Dialog.Title className="text-xl">{volume.title}</Dialog.Title>
@@ -71,7 +71,7 @@ export function ArticleDialog({ volume, isLiked, onToggleLike }: ArticleDialogPr
         <Dialog.Body
           ref={bodyRef}
           onScroll={(event) => syncActive(event.currentTarget)}
-          className="px-14 pt-5"
+          className="px-14 pt-5 max-md:px-6"
         >
           <p className="mb-4 text-body">引言：{volume.caption}</p>
           {volume.sections.map((section) => (

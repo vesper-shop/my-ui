@@ -60,7 +60,7 @@ export function PlanDialog() {
         type="button"
         aria-label="上一页"
         onClick={() => setPageIndex((pageIndex + planPages.length - 1) % planPages.length)}
-        className="plan__arrow -left-[100px] rotate-180"
+        className="plan__arrow -left-[100px] rotate-180 max-md:-left-[78px]"
       >
         <ChevronRight size={72} strokeWidth={1.2} />
       </button>
@@ -68,7 +68,7 @@ export function PlanDialog() {
         type="button"
         aria-label="下一页"
         onClick={() => setPageIndex((pageIndex + 1) % planPages.length)}
-        className="plan__arrow -right-[100px]"
+        className="plan__arrow -right-[100px] max-md:-right-[78px]"
       >
         <ChevronRight size={72} strokeWidth={1.2} />
       </button>

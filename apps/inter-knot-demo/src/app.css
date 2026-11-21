@@ -111,6 +111,17 @@
   color: var(--color-foreground);
 }
 
+.filter-slot {
+  margin-left: auto;
+}
+
+@media (width < 48rem) {
+  .filter-slot {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
 .page {
   animation: page-in var(--duration-slow) ease-out;
 }

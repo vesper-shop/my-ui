@@ -14,9 +14,12 @@ export function FriendsPage({ onNavigate, onNotify }: NavigateProps & NotifyProp
   return (
     <div className="friends">
       <NavBar onBack={() => onNavigate("settings")}>
-        <span className="text-2xl">我的信息</span>
-        <Separator orientation="vertical" className="mx-3 h-[46px] self-center bg-white/40" />
-        <span className="flex items-center gap-2 text-[36px] leading-none">
+        <span className="text-2xl max-md:hidden">我的信息</span>
+        <Separator
+          orientation="vertical"
+          className="mx-3 h-[46px] self-center bg-white/40 max-md:hidden"
+        />
+        <span className="flex items-center gap-2 text-[36px] leading-none max-md:text-2xl">
           <span className="level-badge">
             <small className="level-badge__unit">LV</small>
             {profile.level}
@@ -32,7 +35,7 @@ export function FriendsPage({ onNavigate, onNotify }: NavigateProps & NotifyProp
         }
         className="friends__body"
       >
-        <Tabs.List>
+        <Tabs.List className="friends__tabs">
           <Tabs.Tab value="card" className="friends__tab">
             <IdCard size={34} />
             个人名片

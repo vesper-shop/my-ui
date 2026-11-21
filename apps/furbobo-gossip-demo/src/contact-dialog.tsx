@@ -8,13 +8,13 @@ export function ContactDialog() {
     <Dialog.Popup
       ref={popupRef}
       initialFocus={popupRef}
-      className="[--dialog-height:468px] [--dialog-width:844px]"
+      className="[--dialog-height:468px] [--dialog-width:844px] max-md:dialog-fit max-md:h-auto"
     >
       <Dialog.Header className="bg-banner relative h-[52px] justify-center py-0">
         <span className="wordmark text-2xl">FURBOBO</span>
         <Dialog.Close className="absolute right-4 text-paper" />
       </Dialog.Header>
-      <Dialog.Body className="m-10 mt-4 items-center gap-6 rounded-lg border border-border bg-surface/70 px-24 pt-8 text-body">
+      <Dialog.Body className="m-10 mt-4 items-center gap-6 rounded-lg border border-border bg-surface/70 px-24 pt-8 text-body max-md:m-5 max-md:px-6 max-md:pb-6">
         <Dialog.Title>联系我们</Dialog.Title>
         <div className="self-stretch">
           <p>通讯地址：诺丁汉-一英里奶茶铺隔壁-《狸狸周报》编辑部二楼</p>

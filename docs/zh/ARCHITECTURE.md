@@ -105,6 +105,9 @@ tests/
 
 新增一套 UI 需要：它的包、它的 story、一个 demo，以及根 `package.json` 里的 `demo:<ui>` 命令。
 
+每个 demo 也要能在手机上用。屏幕窄于 768px 时，demo 用 `max-md:` 切换到手机布局；`app.css` 里的手机规则集中写在一个
+`@media (width < 48rem)` 块中。画在缩放画布上的 demo 在手机上改用更窄的设计宽度，画布就不会缩得太小。
+
 ### 组件
 
 每套 UI 只导出它参考录屏里出现过的组件。两套都有的组件，部件和属性完全相同。复合组件是命名空间，部件沿用 Base UI 的名字。
@@ -166,6 +169,6 @@ tests/
 ### 依赖
 
 一套 UI 只依赖 Base UI、React 和它自己的文件；UI 之间从不互相 import。共用工具在根 `package.json`
-里锁定版本。`vite` 是 `@voidzero-dev/vite-plus-core` 的别名，版本要与 `vite-plus` 保持一致。
+里锁定版本。`vite` 是 `@voidzero-dev/vite-plus-core` 的别名，版本要与 `vite-plus` 自身依赖的版本保持一致。
 
 </details>

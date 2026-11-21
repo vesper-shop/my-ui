@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import type { DotProps } from "recharts";
 
 export type StyleWithVars = CSSProperties & Record<`--${string}`, string>;
 
@@ -74,6 +75,10 @@ export interface PostPopupProps {
   post: Post;
   isLiked: boolean;
   onLike: () => void;
+}
+
+export interface MedalDotProps extends DotProps {
+  isPeak: boolean;
 }
 
 export interface FansPanelProps {

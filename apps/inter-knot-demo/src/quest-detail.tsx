@@ -26,7 +26,7 @@ export function QuestDetail({ quest, isTracked, onToggleTrack }: QuestDetailProp
         ))}
       </ul>
       <p className="mt-3 px-1 text-sm font-bold text-subtle-foreground">{quest.description}</p>
-      <div className="mt-auto flex items-center gap-2 self-center rounded-full border-3 border-border bg-chrome p-1.5 shadow-hairline">
+      <div className="mt-auto flex items-center gap-2 self-center max-md:mt-4 rounded-full border-3 border-border bg-chrome p-1.5 shadow-hairline">
         <Tooltip.Root>
           <Tooltip.Trigger
             render={<Button variant="ghost" aria-label="前往" />}
@@ -55,7 +55,7 @@ export function QuestDetail({ quest, isTracked, onToggleTrack }: QuestDetailProp
             variant="ghost"
             disabled
             aria-label="空闲槽位"
-            className="size-11 rounded-full bg-surface px-0"
+            className="size-11 rounded-full bg-surface px-0 max-md:nth-[n+4]:hidden"
           >
             <X size={22} strokeWidth={2.4} />
           </Button>

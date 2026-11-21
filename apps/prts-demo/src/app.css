@@ -7,6 +7,7 @@
 }
 
 .stage__canvas {
+  width: var(--stage-width);
   height: var(--stage-height);
   transform-origin: top left;
   scale: var(--stage-scale);
@@ -551,4 +552,77 @@
   background-color: var(--color-surface-sunken);
   font-family: var(--font-display);
   font-size: 22px;
+}
+
+@media (width < 48rem) {
+  .settings__header {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 20px 20px 12px;
+  }
+
+  .settings__body {
+    padding-inline: 20px;
+  }
+
+  .settings__grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    height: auto;
+  }
+
+  .nav-bar {
+    gap: 12px;
+    padding-right: 16px;
+  }
+
+  .nav-pill {
+    width: 160px;
+  }
+
+  .nav-pill__back {
+    width: 64px;
+  }
+
+  .friends__body {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 16px 0;
+  }
+
+  .friends__tabs {
+    flex-direction: row;
+  }
+
+  .friends__tab {
+    flex: 1;
+    height: 52px;
+    font-size: 17px;
+  }
+
+  .friends__add,
+  .friends__card {
+    margin-left: 0;
+  }
+
+  .friend-row {
+    gap: 12px;
+  }
+
+  .friend-row__action {
+    width: 52px;
+  }
+
+  .friends__search {
+    width: 96px;
+  }
+
+  .name-card {
+    flex-direction: column;
+    aspect-ratio: auto;
+  }
+
+  .name-card__moments {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

@@ -15,7 +15,7 @@ export function PostWindow({ post, isRead, onReply }: PostWindowProps) {
     <Dialog.Popup
       ref={popupRef}
       initialFocus={popupRef}
-      className="[--dialog-height:480px] [--dialog-width:880px]"
+      className="[--dialog-height:480px] [--dialog-width:880px] max-md:[--dialog-height:calc(100dvh-40px)]"
     >
       <Dialog.Header>
         <UserAvatar name={post.author} src={post.avatar} size={50} />
@@ -31,20 +31,20 @@ export function PostWindow({ post, isRead, onReply }: PostWindowProps) {
         <Dialog.Close />
       </Dialog.Header>
       <Dialog.Body>
-        <section className="flex min-w-0 flex-[1.2] gap-4 rounded-lg bg-surface-sunken p-3.5">
-          <div className="post-media relative flex w-1/2 shrink-0 overflow-hidden rounded-lg border-4 border-divider bg-chrome">
+        <section className="flex min-w-0 flex-[1.2] gap-4 rounded-lg bg-surface-sunken p-3.5 max-md:flex-none max-md:flex-col">
+          <div className="post-media relative flex w-1/2 shrink-0 max-md:w-full overflow-hidden rounded-lg border-4 border-divider bg-chrome">
             <Cover {...post.cover} />
             {isRead && <span className="read-mark">已读</span>}
           </div>
-          <div className="mask-fade-y min-w-0 flex-1 overflow-y-auto py-3 pr-1">
+          <div className="mask-fade-y min-w-0 flex-1 overflow-y-auto py-3 pr-1 max-md:mask-none max-md:py-0">
             <Dialog.Title className="text-[15px] leading-snug">{post.title}</Dialog.Title>
             <Dialog.Description className="mt-2 text-sm whitespace-pre-line">
               {post.body}
             </Dialog.Description>
           </div>
         </section>
-        <section className="flex min-w-0 flex-1 flex-col rounded-lg bg-surface-sunken">
-          <ol className="mask-fade-y min-h-0 flex-1 overflow-y-auto px-4 py-3">
+        <section className="flex min-w-0 flex-1 flex-col rounded-lg bg-surface-sunken max-md:flex-none">
+          <ol className="mask-fade-y min-h-0 flex-1 overflow-y-auto px-4 py-3 max-md:mask-none">
             {post.comments.map((comment, index) => (
               <Fragment key={index}>
                 {index > 0 && <Separator className="my-3" />}

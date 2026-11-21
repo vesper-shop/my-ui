@@ -24,8 +24,11 @@ export function App() {
 
   const width = useSyncExternalStore(subscribeToResize, () => window.innerWidth);
   const height = useSyncExternalStore(subscribeToResize, () => window.innerHeight);
-  const scale = width / 1600;
+  const isPhone = width < 768;
+  const stageWidth = isPhone ? 600 : 1600;
+  const scale = width / stageWidth;
   const stageStyle: StyleWithVars = {
+    "--stage-width": `${stageWidth}px`,
     "--stage-height": `${Math.max(height / scale, 900)}px`,
     "--stage-scale": `${scale}`,
   };
@@ -34,17 +37,14 @@ export function App() {
     <Tooltip.Provider delay={0} closeDelay={0}>
       <div className="h-dvh overflow-hidden bg-background">
         <div className="stage" style={stageStyle}>
-          <div
-            ref={stageRef}
-            className="stage__canvas bg-grove-stage relative w-[1600px] overflow-hidden"
-          >
+          <div ref={stageRef} className="stage__canvas bg-grove-stage relative overflow-hidden">
             <BlogHeader />
             <Tabs.Root
-              orientation="vertical"
+              orientation={isPhone ? "horizontal" : "vertical"}
               defaultValue="fans"
-              className="absolute top-[190px] bottom-[48px] left-1/2 w-[1444px] -translate-x-1/2"
+              className="absolute top-[190px] bottom-[48px] left-1/2 w-[1444px] -translate-x-1/2 max-md:top-[174px] max-md:w-[552px]"
             >
-              <Tabs.List>
+              <Tabs.List className="max-md:*:w-auto max-md:*:flex-1">
                 <Tabs.Tab value="fans">
                   <ChartNoAxesCombined size={28} />
                   粉丝变化

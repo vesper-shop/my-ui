@@ -12,7 +12,7 @@ import {
   YAxis,
 } from "recharts";
 import { fanCurve, fanPeak, levels, stats } from "@/data/blogger";
-import type { FansPanelProps, StyleWithVars } from "@/types";
+import type { FansPanelProps, MedalDotProps, StyleWithVars } from "@/types";
 
 const statIcons = [UsersRound, HandCoins, Heart];
 
@@ -34,9 +34,13 @@ function LevelTick({ x, y, index }: XAxisTickContentProps) {
   );
 }
 
-function MedalDot({ cx, cy, fill }: DotProps) {
+function MedalDot({ cx, cy, isPeak }: MedalDotProps) {
   return (
-    <g transform={`translate(${cx},${cy})`} color={fill} className="fan-chart__medal">
+    <g
+      transform={`translate(${cx},${cy})`}
+      color={isPeak ? "var(--color-label)" : "var(--color-avatar)"}
+      className="fan-chart__medal"
+    >
       <circle r="26" className="fan-chart__medal-ring" />
       <Medal x={-15} y={-15} size={30} />
     </g>
@@ -59,14 +63,14 @@ function PeakDot({ cx, cy }: DotProps) {
 export function FansPanel({ onOpenPlan }: FansPanelProps) {
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-[30px]">
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-3 gap-5 max-md:grid-cols-1 max-md:gap-3">
         {stats.map((stat, index) => {
           const Icon = statIcons[index];
           return (
             <Tooltip.Root key={stat.label}>
               <Tooltip.Trigger
                 render={<Card.Root />}
-                className="flex h-[120px] cursor-default items-center gap-7 px-8 hover:border-glow hover:shadow-glow"
+                className="flex h-[120px] cursor-default items-center gap-7 px-8 hover:border-glow hover:shadow-glow max-md:h-[96px]"
               >
                 <span
                   data-tone={stat.tone}
@@ -154,8 +158,9 @@ export function FansPanel({ onOpenPlan }: FansPanelProps) {
                   x={level.x}
                   y={64}
                   r={26}
-                  fill={level.x === fanPeak.x ? "var(--color-label)" : "var(--color-avatar)"}
-                  shape={MedalDot}
+                  shape={(props: DotProps) => (
+                    <MedalDot {...props} isPeak={level.x === fanPeak.x} />
+                  )}
                 />
               ))}
             <ReferenceLine

@@ -5,8 +5,8 @@ import type { SidebarProps } from "@/types";
 
 export function Sidebar({ onOpenContact }: SidebarProps) {
   return (
-    <aside className="bg-sidebar relative flex w-[212px] shrink-0 flex-col items-center pt-6 pb-10">
-      <div className="flex items-center gap-2 self-start pl-7 text-paper">
+    <aside className="bg-sidebar relative flex w-[212px] shrink-0 flex-col items-center pt-6 pb-10 max-md:w-full max-md:flex-row max-md:flex-wrap max-md:gap-y-4 max-md:px-5 max-md:pt-5 max-md:pb-5">
+      <div className="flex items-center gap-2 self-start pl-7 text-paper max-md:self-center max-md:pl-0">
         <span className="grid size-8 place-items-center rounded-md bg-paper text-accent">
           <Sparkles size={20} strokeWidth={2.4} />
         </span>
@@ -15,13 +15,13 @@ export function Sidebar({ onOpenContact }: SidebarProps) {
           <span className="text-sm font-medium">狸狸门户网</span>
         </span>
       </div>
-      <div className="logo mt-6">
+      <div className="logo mt-6 max-md:hidden!">
         <span className="logo__char">八</span>
         <span className="logo__char">卦</span>
         <span className="logo__char">周</span>
         <span className="logo__char">报</span>
       </div>
-      <Tabs.List className="mt-7">
+      <Tabs.List className="mt-7 max-md:order-last max-md:mt-0 max-md:w-full max-md:flex-row max-md:*:flex-1">
         <Tabs.Tab value="headlines">
           留子头条
           <Newspaper
@@ -40,7 +40,7 @@ export function Sidebar({ onOpenContact }: SidebarProps) {
         </Tabs.Tab>
         <Tabs.Indicator />
       </Tabs.List>
-      <div className="mt-auto flex flex-col items-center gap-2 text-paper">
+      <div className="mt-auto flex flex-col items-center gap-2 text-paper max-md:mt-0 max-md:ml-auto">
         <span className="text-xs">· 赞助方 ·</span>
         <span className="flex gap-2">
           {sponsors.map((sponsor) => (
@@ -64,7 +64,7 @@ export function Sidebar({ onOpenContact }: SidebarProps) {
           联系我们
         </Button>
       </div>
-      <span className="absolute bottom-3 left-6 font-display text-2xs text-paper/80">
+      <span className="absolute bottom-3 left-6 font-display text-2xs text-paper/80 max-md:hidden">
         UID:10000001
       </span>
     </aside>

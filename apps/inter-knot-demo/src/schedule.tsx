@@ -20,31 +20,31 @@ export function Schedule() {
     .filter((group) => !isFocused || group.quests.some((quest) => quest.id === trackedId));
 
   return (
-    <div className="window mx-[45px] mt-2 mb-6 flex min-h-0 flex-1 flex-col">
-      <div className="flex h-[58px] shrink-0 items-center gap-4 bg-window bg-dots px-4">
+    <div className="window mx-[45px] mt-2 mb-6 flex min-h-0 flex-1 flex-col max-md:mx-3 max-md:flex-none">
+      <div className="flex h-[58px] shrink-0 items-center gap-4 bg-window bg-dots px-4 max-md:h-auto max-md:flex-wrap max-md:gap-3 max-md:p-3">
         <label className="flex items-center gap-3 rounded-full border-3 border-border bg-chrome py-0.5 pr-0.5 pl-4 text-sm font-bold shadow-hairline">
           任务聚焦
           <Switch.Root checked={isFocused} onCheckedChange={setIsFocused}>
             <Switch.Thumb />
           </Switch.Root>
         </label>
-        <div className="ml-auto">
+        <div className="filter-slot">
           <FilterTabs
             tabs={questTabs}
             value={filter}
             onChange={setFilter}
             listClassName="h-[30px] w-[510px]"
-            tabClassName="px-4 text-sm"
+            tabClassName="px-4 text-sm max-md:px-1"
           />
         </div>
       </div>
-      <div className="grid min-h-0 flex-1 grid-cols-[1.15fr_1fr] gap-4 p-4">
+      <div className="grid min-h-0 flex-1 grid-cols-[1.15fr_1fr] gap-4 p-4 max-md:flex-none max-md:grid-cols-1 max-md:p-3">
         <QuestDetail
           quest={selected}
           isTracked={trackedId === selected.id}
           onToggleTrack={() => setTrackedId(trackedId === selected.id ? null : selected.id)}
         />
-        <div className="flex min-h-0 flex-col gap-4 overflow-y-auto pt-1 pr-2">
+        <div className="flex min-h-0 flex-col gap-4 overflow-y-auto pt-1 pr-2 max-md:overflow-visible max-md:pr-0">
           {filter === "all" && (
             <div className="relative shrink-0 overflow-hidden rounded-control border-3 border-border">
               <Cover src={latestChapter.cover} ratio={0.2} />

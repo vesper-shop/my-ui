@@ -27,19 +27,19 @@ export function Feed() {
   }
 
   return (
-    <div className="px-[45px] pb-10">
-      <div className="pointer-events-none sticky top-0 z-10 flex justify-end pt-3 pb-7">
-        <div className="pointer-events-auto">
+    <div className="px-[45px] pb-10 max-md:px-3">
+      <div className="pointer-events-none sticky top-0 z-10 flex justify-end pt-3 pb-7 max-md:pb-4">
+        <div className="filter-slot pointer-events-auto">
           <FilterTabs
             tabs={channels}
             value={channel}
             onChange={setChannel}
             listClassName="h-[30px] w-[400px]"
-            tabClassName="px-6 text-sm"
+            tabClassName="px-6 text-sm max-md:px-2"
           />
         </div>
       </div>
-      <div className="columns-5 gap-6">
+      <div className="columns-5 gap-6 max-md:columns-2 max-md:gap-3">
         {visiblePosts.map((post) => (
           <PostCard
             isRead={readIds.includes(post.id)}

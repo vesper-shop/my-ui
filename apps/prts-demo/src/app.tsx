@@ -22,8 +22,10 @@ export function App() {
 
   const width = useSyncExternalStore(subscribeToResize, () => window.innerWidth);
   const height = useSyncExternalStore(subscribeToResize, () => window.innerHeight);
-  const scale = width / 1280;
+  const stageWidth = width < 768 ? 560 : 1280;
+  const scale = width / stageWidth;
   const stageStyle: StyleWithVars = {
+    "--stage-width": `${stageWidth}px`,
     "--stage-height": `${Math.max(height / scale, 720)}px`,
     "--stage-scale": `${scale}`,
   };
@@ -31,10 +33,7 @@ export function App() {
   return (
     <div className="h-dvh overflow-hidden bg-background">
       <div className="stage" style={stageStyle}>
-        <div
-          ref={stageRef}
-          className="stage__canvas relative w-[1280px] overflow-hidden bg-background"
-        >
+        <div ref={stageRef} className="stage__canvas relative overflow-hidden bg-background">
           <StageContext value={stageRef}>
             <div key={page} className="page-enter h-full">
               {page === "settings" ? (

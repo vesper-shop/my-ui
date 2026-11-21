@@ -46,7 +46,7 @@ export function PostCard({ post, onOpen }: PostCardProps) {
           </span>
         </Card.Footer>
       </Card.Body>
-      <Card.Media>
+      <Card.Media className="max-md:h-[120px] max-md:w-[180px]">
         <Cover src={post.cover} />
         {post.tag && <span className="post-tag">{post.tag}</span>}
       </Card.Media>

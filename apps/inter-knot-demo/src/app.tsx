@@ -11,7 +11,7 @@ export function App() {
 
   return (
     <Tooltip.Provider>
-      <div className="flex h-dvh min-w-[1100px] flex-col bg-chrome">
+      <div className="flex h-dvh flex-col bg-chrome md:min-w-[1100px]">
         <TopBar page={page} onPageChange={setPage} />
         <main className="relative flex min-h-0 flex-1 flex-col bg-surface-sunken">
           <div className="watermark" />

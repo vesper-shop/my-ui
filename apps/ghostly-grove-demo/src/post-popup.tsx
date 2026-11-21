@@ -12,8 +12,12 @@ export function PostPopup({ post, isLiked, onLike }: PostPopupProps) {
   const likes = post.likes + (isLiked ? 1 : 0);
 
   return (
-    <Dialog.Popup ref={popupRef} initialFocus={popupRef} className="flex-row">
-      <div className="relative w-[796px] shrink-0 overflow-hidden">
+    <Dialog.Popup
+      ref={popupRef}
+      initialFocus={popupRef}
+      className="flex-row max-md:h-full max-md:w-full max-md:flex-col"
+    >
+      <div className="relative w-[796px] shrink-0 overflow-hidden max-md:h-[340px] max-md:w-full">
         <Cover src={post.cover} />
         {post.status === "done" && <Badge className="absolute top-0 left-0">✓ 已完成</Badge>}
         <Toggle
@@ -28,7 +32,7 @@ export function PostPopup({ post, isLiked, onLike }: PostPopupProps) {
           {likes.toLocaleString("zh-CN", { notation: "compact", maximumFractionDigits: 1 })}
         </Toggle>
       </div>
-      <div className="flex min-w-0 flex-1 flex-col">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col">
         <Dialog.Header className="pt-6 pb-2 pl-6">
           <UserAvatar name={blogger.name} src={blogger.avatar} size={36} />
           <span className="text-[22px]">{blogger.name}</span>

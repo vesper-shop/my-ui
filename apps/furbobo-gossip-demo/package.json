@@ -11,7 +11,7 @@
   "dependencies": {
     "@my-ui/avatars": "workspace:*",
     "@my-ui/furbobo-gossip": "workspace:*",
-    "lucide-react": "1.70.0",
+    "lucide-react": "1.76.0",
     "react": "19.3.1",
     "react-dom": "19.3.1"
   }

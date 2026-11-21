@@ -9,7 +9,7 @@ import { UserAvatar } from "@/user-avatar";
 
 export function ChatPage({ likedKeys, onToggleLike, onOpenPost }: ChatPageProps) {
   return (
-    <div className="flex h-full flex-col gap-3 overflow-y-auto pt-1 pr-14 pb-6 pl-[84px]">
+    <div className="flex h-full flex-col gap-3 overflow-y-auto pt-1 pr-14 pb-6 pl-[84px] max-md:px-5">
       {posts.map((post) => (
         <Card.Root
           key={post.id}
@@ -46,7 +46,7 @@ export function ChatPage({ likedKeys, onToggleLike, onOpenPost }: ChatPageProps)
               </span>
             </Card.Footer>
           </Card.Body>
-          <Card.Media>
+          <Card.Media className="max-md:h-[120px] max-md:w-[170px]">
             <Cover src={post.cover} />
             <span className="media-badge">
               {post.hasVideo ? <Play size={20} className="fill-current" /> : <ZoomIn size={22} />}

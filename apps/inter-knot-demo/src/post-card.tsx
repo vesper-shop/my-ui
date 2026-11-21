@@ -6,7 +6,11 @@ import { UserAvatar } from "@/user-avatar";
 
 export function PostCard({ post, isRead, onOpen }: PostCardProps) {
   return (
-    <Card.Root render={<article />} onClick={onOpen} className="mb-6 break-inside-avoid">
+    <Card.Root
+      render={<article />}
+      onClick={onOpen}
+      className="mb-6 break-inside-avoid max-md:mb-3"
+    >
       <Card.Media>
         <Cover {...post.cover} />
         {post.tag && (

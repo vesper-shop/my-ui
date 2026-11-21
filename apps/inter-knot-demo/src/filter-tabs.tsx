@@ -21,7 +21,7 @@ export function FilterTabs<Value extends string>({
         onChange(tab.value);
       }}
     >
-      <Tabs.List className={listClassName}>
+      <Tabs.List className={`${listClassName} max-md:w-full`}>
         {tabs.map((tab) => (
           <Tabs.Tab key={tab.value} value={tab.value} className={tabClassName}>
             {tab.isNew && !seen.includes(tab.value) && <span className="new-mark">NEW!</span>}

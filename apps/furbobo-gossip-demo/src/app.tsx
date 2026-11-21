@@ -33,8 +33,10 @@ export function App() {
 
   const width = useSyncExternalStore(subscribeToResize, () => window.innerWidth);
   const height = useSyncExternalStore(subscribeToResize, () => window.innerHeight);
-  const scale = width / 1280;
+  const stageWidth = width < 768 ? 560 : 1280;
+  const scale = width / stageWidth;
   const stageStyle: StyleWithVars = {
+    "--stage-width": `${stageWidth}px`,
     "--stage-height": `${Math.max(height / scale, 760)}px`,
     "--stage-scale": `${scale}`,
   };
@@ -43,21 +45,18 @@ export function App() {
     <Tooltip.Provider>
       <div className="h-dvh overflow-hidden bg-background">
         <div className="stage" style={stageStyle}>
-          <div
-            ref={stageRef}
-            className="stage__canvas bg-sidebar relative w-[1280px] overflow-hidden"
-          >
+          <div ref={stageRef} className="stage__canvas bg-sidebar relative overflow-hidden">
             <Tabs.Root
               orientation="vertical"
               value={section}
               onValueChange={(value) =>
                 (value === "headlines" || value === "chat") && setSection(value)
               }
-              className="absolute inset-0 gap-0"
+              className="absolute inset-0 gap-0 max-md:flex-col"
             >
               <Sidebar onOpenContact={() => setIsContactOpen(true)} />
-              <main className="paper-panel relative mb-6 flex min-w-0 flex-1 flex-col">
-                <div className="flex h-[78px] shrink-0 items-start gap-3 px-8 pt-9">
+              <main className="paper-panel relative mb-6 flex min-h-0 min-w-0 flex-1 flex-col max-md:mb-0 max-md:rounded-l-none max-md:rounded-t-sheet">
+                <div className="flex h-[78px] shrink-0 items-start gap-3 px-8 pt-9 max-md:px-5">
                   <span className="font-display text-2xs tracking-widest text-subtle-foreground">
                     FURBOBO GOSSIP DAILY
                   </span>
